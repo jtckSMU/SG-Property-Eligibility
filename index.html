@@ -824,6 +824,9 @@ footer li{break-inside:avoid;margin-bottom:4px}
   <!-- 2026 -->
   <section id="p-new" role="tabpanel" aria-labelledby="tab-new" hidden>
     <p class="timeline-intro">Key rule changes for buying and selling homes in Singapore since 2016, newest first. Each entry links to the official announcement or rule page.</p>
+    <div class="qa-tools">
+      <input type="search" id="tl-q" placeholder="Search e.g. “ABSD”, “HDB loan”, “grant”, “2023”" aria-label="Search the timeline">
+    </div>
     <ol class="timeline">
       <li class="year"><span>2027</span></li>
       <li><time>Feb 2027</time><div><h3>Extra ballot chances for children</h3><p>First-timer families with or expecting children get one more ballot chance for each Singapore Citizen child aged 18 or under, in all BTO and SBF applications. <a href="https://www.hdb.gov.sg/hdb-pulse/news/2026/increase-in-income-ceilings-and-greater-support-for-families-with-children" target="_blank" rel="noopener">HDB</a></p></div></li>
@@ -863,6 +866,7 @@ footer li{break-inside:avoid;margin-bottom:4px}
       <li class="year"><span>2016</span></li>
       <li><time>1 Dec 2016</time><div><h3>Fresh Start Housing Scheme opens</h3><p>Second-timer families with children living in public rental flats can buy a 2-room Flexi or 3-room Standard flat on a shorter lease. These flats carry a 20-year MOP. <a href="https://www.hdb.gov.sg/buying-a-flat/bto-sbf-and-open-booking-of-flats/process-for-buying-a-new-flat/application/fresh-start-housing-scheme" target="_blank" rel="noopener">HDB</a></p></div></li>
     </ol>
+    <p class="empty" id="tl-empty" hidden></p>
   </section>
 
   <footer>
@@ -1611,6 +1615,25 @@ function renderQA(){
 $("tagbar").innerHTML = TAGS.map(t=>`<button type="button" aria-pressed="${t==="All"}" data-tag="${t}">${t}</button>`).join("");
 $("tagbar").addEventListener("click", e => { const b=e.target.closest("button"); if(!b) return; activeTag=b.dataset.tag; document.querySelectorAll("#tagbar button").forEach(x=>x.setAttribute("aria-pressed", x===b)); renderQA(); });
 $("q").addEventListener("input", renderQA);
+
+/* ---------- Timeline search ---------- */
+function filterTimeline(){
+  const term = $("tl-q").value.trim().toLowerCase();
+  const items = [...document.querySelectorAll("ol.timeline > li")];
+  let shown = 0, yearEl = null, yearHasItems = false;
+  const closeYear = () => { if (yearEl) yearEl.hidden = !yearHasItems; };
+  items.forEach(li => {
+    if (li.classList.contains("year")){ closeYear(); yearEl = li; yearHasItems = false; return; }
+    const match = !term || li.textContent.toLowerCase().includes(term);
+    li.hidden = !match;
+    if (match){ shown++; yearHasItems = true; }
+  });
+  closeYear();
+  const empty = $("tl-empty");
+  empty.hidden = shown > 0;
+  if (!shown) empty.textContent = `No changes match “${$("tl-q").value.trim()}”. Try another word, such as a year or “stamp duty”.`;
+}
+$("tl-q").addEventListener("input", filterTimeline);
 
 /* ---------- Tabs ---------- */
 const tabs = [...document.querySelectorAll('nav.tabs [role="tab"]')];
