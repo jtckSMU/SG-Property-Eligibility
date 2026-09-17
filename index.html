@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important}img{max-width:100%}</style>
+<title>SG Home Eligibility Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#EEF3FA; --bg-2:#E3EBF7; --panel:#FFFFFF; --panel-2:#F5F8FC; --ink:#0E1A2E; --muted:#56657D; --line:#DCE4EF; --line-2:#C9D5E6;
+  --accent:#2356D8; --accent-2:#0E9F95; --accent-ink:#FFFFFF; --accent-soft:#E4ECFD; --teal-soft:#DDF4F1;
+  --hero-1:#0B2352; --hero-2:#1B4FC4; --hero-3:#0E9F95;
+  --ok:#15803D; --ok-soft:#DCF5E5; --warn:#B45309; --warn-soft:#FDF0D5; --no:#D12C2C; --no-soft:#FDE3E3; --info:#2F5FB3; --info-soft:#E3ECFB;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --shadow-sm:0 1px 2px rgba(15,35,80,.06);
+  --shadow:0 1px 2px rgba(15,35,80,.05), 0 10px 30px -12px rgba(15,35,80,.18);
+  --radius:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A111D; --bg-2:#0E1727; --panel:#121C2D; --panel-2:#172336; --ink:#E6EDF7; --muted:#9AAAC2; --line:#243249; --line-2:#2F4160;
+    --accent:#7FA6FF; --accent-2:#3CCFC2; --accent-ink:#081226; --accent-soft:#1A2A4A; --teal-soft:#12302F;
+    --hero-1:#0B1A3A; --hero-2:#173E9C; --hero-3:#0C7D76;
+    --ok:#4ADE80; --ok-soft:#10301E; --warn:#F5B454; --warn-soft:#35260F; --no:#FF7A7A; --no-soft:#3A1518; --info:#8FB3FF; --info-soft:#17264A;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.35);
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 30px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A111D; --bg-2:#0E1727; --panel:#121C2D; --panel-2:#172336; --ink:#E6EDF7; --muted:#9AAAC2; --line:#243249; --line-2:#2F4160;
+  --accent:#7FA6FF; --accent-2:#3CCFC2; --accent-ink:#081226; --accent-soft:#1A2A4A; --teal-soft:#12302F;
+  --hero-1:#0B1A3A; --hero-2:#173E9C; --hero-3:#0C7D76;
+  --ok:#4ADE80; --ok-soft:#10301E; --warn:#F5B454; --warn-soft:#35260F; --no:#FF7A7A; --no-soft:#3A1518; --info:#8FB3FF; --info-soft:#17264A;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.35);
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 30px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);background-image:radial-gradient(1200px 500px at 100% -10%, var(--bg-2), transparent 60%);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.55;margin:0;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:2px}
+a:hover{text-decoration-thickness:2px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,3vw,32px);padding-block:22px 56px}
+
+/* Hero */
+header.top{position:relative;overflow:hidden;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:flex-end;justify-content:space-between;margin-bottom:18px;
+  padding:clamp(22px,4vw,40px);border-radius:22px;color:#fff;
+  background:linear-gradient(125deg,var(--hero-1) 0%,var(--hero-2) 58%,var(--hero-3) 100%);box-shadow:var(--shadow)}
+header.top::before{content:"";position:absolute;inset:auto -60px -120px auto;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 65%);pointer-events:none}
+header.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;pointer-events:none;opacity:.12;background:#fff;
+  clip-path:polygon(0 60%,4% 60%,4% 10%,6% 10%,6% 50%,9% 50%,9% 0,10.5% 0,10.5% 45%,14% 45%,14% 25%,17% 25%,17% 55%,21% 55%,21% 30%,22% 30%,22% 70%,70% 70%,70% 20%,72% 20%,72% 50%,75% 50%,75% 5%,78.5% 5%,78.5% 40%,83% 40%,83% 15%,84% 15%,84% 55%,88% 55%,88% 30%,91% 30%,91% 65%,100% 65%,100% 100%,0 100%)}
+header.top > *{position:relative;z-index:1}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.6vw,48px);line-height:1.02;letter-spacing:-.025em;margin:0;text-wrap:balance;color:#fff}
+.lede{color:rgba(255,255,255,.86);margin:10px 0 0;max-width:64ch;font-size:16px}
+.stamp{font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.85);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);padding:8px 12px;border-radius:999px;white-space:nowrap;backdrop-filter:blur(6px)}
+.stamp b{color:#fff;font-weight:600}
+
+/* Tabs */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:6px;padding:6px;margin-bottom:20px;overflow-x:auto;
+  background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{font:600 14.5px var(--body);color:var(--muted);background:none;border:0;border-radius:10px;padding:10px 16px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+nav.tabs button:hover{background:var(--panel-2);color:var(--ink)}
+nav.tabs button[aria-selected="true"]{color:var(--accent-ink);background:var(--accent);box-shadow:0 6px 16px -8px var(--accent)}
+nav.tabs button:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 45%,transparent);outline-offset:2px}
+
+/* Layout */
+.checker{display:grid;grid-template-columns:minmax(300px,410px) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:900px){.checker{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+form.card{padding:20px}
+.section-label{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+.section-label::before{content:"";width:8px;height:8px;border-radius:3px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:none}
+
+/* Goal chips */
+.goalset{border:0;padding:14px;margin:0 0 18px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px}
+.goalset legend{padding:0;float:left;width:100%;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;clear:both}
+.chips .grp{width:100%;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.chips .grp:not(:first-child){margin-top:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.chip span{display:block;border:1.5px solid var(--line-2);background:var(--panel);border-radius:999px;padding:7px 13px;font-size:13.5px;font-weight:600;color:var(--ink);transition:border-color .15s,background .15s,transform .1s}
+.chip:hover span{border-color:var(--accent)}
+.chip input:focus-visible + span{outline:3px solid color-mix(in srgb,var(--accent) 45%,transparent);outline-offset:2px}
+.chip input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 6px 14px -8px var(--accent)}
+.grp ~ .grp ~ .chip input:checked + span{background:var(--accent-2);border-color:var(--accent-2);box-shadow:0 6px 14px -8px var(--accent-2)}
+.grp ~ .grp ~ .chip:hover span{border-color:var(--accent-2)}
+
+/* Fields */
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1 / -1}
+.field label, .field .lbl{font-size:13.5px;font-weight:600;color:var(--ink)}
+.field small,.field .hint{color:var(--muted);font-size:12.5px;line-height:1.4}
+select,input[type=number],input[type=date],input[type=text]{font:inherit;font-size:15px;font-weight:500;color:var(--ink);background:var(--panel);border:1.5px solid var(--line-2);border-radius:10px;padding:10px 12px;min-height:44px;width:100%;min-width:0;transition:border-color .15s,box-shadow .15s}
+select{appearance:none;-webkit-appearance:none;padding-right:36px;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%236B7A92' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center}
+select:hover,input:hover{border-color:var(--accent)}
+select:focus,input:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 16%,transparent);outline:none}
+input.money{font-family:var(--mono);font-weight:600;font-size:15.5px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;grid-column:1 / -1;padding:10px 12px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.check input{margin-top:3px;width:17px;height:17px;accent-color:var(--accent);flex:none}
+.divider{grid-column:1 / -1;border-top:1px dashed var(--line-2);margin:4px 0}
+.example{font-size:13px;color:var(--muted);margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.btn-ghost{font:600 13px var(--body);background:var(--accent-soft);border:0;color:var(--accent);border-radius:999px;padding:7px 14px;cursor:pointer;transition:filter .15s}
+.btn-ghost:hover{filter:brightness(.96)}
+
+/* Result */
+.result{overflow:hidden}
+.verdict{padding:22px 24px;border-bottom:1px solid var(--line);display:grid;gap:10px;background:linear-gradient(135deg,var(--info-soft),var(--panel) 70%)}
+.verdict:has(.pill.yes){background:linear-gradient(135deg,var(--ok-soft),var(--panel) 75%)}
+.verdict:has(.pill.cond){background:linear-gradient(135deg,var(--warn-soft),var(--panel) 75%)}
+.verdict:has(.pill.no){background:linear-gradient(135deg,var(--no-soft),var(--panel) 75%)}
+.verdict .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:7px;font:700 12.5px var(--body);letter-spacing:.06em;text-transform:uppercase;padding:6px 12px 6px 10px;border-radius:999px;color:#fff}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.9;box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+.pill.yes{background:var(--ok);color:#fff}
+.pill.cond{background:var(--warn);color:#fff}
+.pill.no{background:var(--no);color:#fff}
+:root[data-theme="dark"] .pill{color:#0A111D}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill{color:#0A111D}}
+.verdict h2{font-family:var(--display);font-size:clamp(22px,2.8vw,30px);font-weight:700;line-height:1.15;margin:0;letter-spacing:-.015em;text-wrap:balance}
+.tally{font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:3px 9px;border-radius:999px}
+.res-body{padding:8px 24px 24px;display:grid;gap:20px}
+.res-body h3{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:16px 0 8px}
+.res-body h3::after{content:"";flex:1;height:1px;background:var(--line)}
+ul.checks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.checks li{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+ul.checks li:has(.mark.no){background:color-mix(in srgb,var(--no-soft) 55%,var(--panel));border-color:color-mix(in srgb,var(--no) 25%,var(--line))}
+ul.checks li:has(.mark.warn){background:color-mix(in srgb,var(--warn-soft) 55%,var(--panel));border-color:color-mix(in srgb,var(--warn) 22%,var(--line))}
+.mark{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:700 13px var(--mono);margin-top:0}
+.mark.ok{background:var(--ok);color:#fff}
+.mark.warn{background:var(--warn);color:#fff}
+.mark.no{background:var(--no);color:#fff}
+.mark.info{background:var(--info-soft);color:var(--info)}
+.src{font-size:12px;white-space:nowrap;margin-left:6px;color:var(--muted)}
+.src a{color:var(--muted);font-weight:600;background:var(--panel-2);border:1px solid var(--line);padding:1px 7px;border-radius:999px;text-decoration:none}
+.src a:hover{color:var(--accent);border-color:var(--accent)}
+.grants{background:linear-gradient(135deg,var(--teal-soft),var(--accent-soft));border:1px solid var(--line);border-radius:14px;padding:6px 16px}
+.grants table{width:100%;border-collapse:collapse}
+.grants td{padding:11px 0;border-top:1px solid color-mix(in srgb,var(--line-2) 60%,transparent);vertical-align:top}
+.grants tr:first-child td{border-top:0}
+.grants td.amt{text-align:right;font-family:var(--mono);font-weight:600;white-space:nowrap;padding-left:12px;color:var(--ink)}
+.grants tr.total td{font-weight:700;border-top:2px solid var(--ink);font-size:17px}
+.grants tr.total td.amt{color:var(--accent-2)}
+.grants .note{display:block;color:var(--muted);font-size:13px}
+.muted{color:var(--muted)}
+.num{font-family:var(--mono);font-size:.94em}
+
+/* Q&A */
+.qa-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:16px;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.qa-tools input[type=search]{font:inherit;font-size:15.5px;flex:1 1 280px;min-width:0;min-height:46px;background:var(--panel-2);border:1.5px solid var(--line-2);border-radius:12px;padding:10px 14px 10px 42px;color:var(--ink);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%236B7A92' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:14px center}
+.qa-tools input[type=search]:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 16%,transparent);outline:none}
+.tagbar{display:flex;flex-wrap:wrap;gap:6px}
+.tagbar button{font:600 13px var(--body);border:1.5px solid var(--line-2);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;transition:all .15s}
+.tagbar button:hover{border-color:var(--accent);color:var(--accent)}
+.tagbar button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.qa-list{display:grid;gap:10px}
+details.qa{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm);transition:box-shadow .15s,border-color .15s}
+details.qa:hover{border-color:var(--line-2);box-shadow:var(--shadow)}
+details.qa[open]{border-color:color-mix(in srgb,var(--accent) 40%,var(--line));box-shadow:var(--shadow)}
+details.qa summary{cursor:pointer;padding:15px 18px;font-weight:600;font-size:15.5px;list-style:none;display:flex;gap:14px;justify-content:space-between;align-items:center}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::after{content:"+";flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font:600 18px var(--mono);transition:transform .2s}
+details.qa[open] summary::after{content:"−";background:var(--accent);color:var(--accent-ink)}
+.qa-a{padding:0 18px 16px;max-width:80ch}
+.qa-a p{margin:0 0 10px;color:var(--ink)}
+.qa-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--muted);padding-top:10px;border-top:1px dashed var(--line)}
+.tag{font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 9px;background:var(--teal-soft);color:var(--accent-2)}
+.empty{color:var(--muted);padding:28px;text-align:center;background:var(--panel);border:1px dashed var(--line-2);border-radius:14px}
+
+/* Rule tables */
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,470px),1fr));gap:18px}
+.ref{padding:20px 22px}
+.ref h3{font-family:var(--display);font-size:21px;font-weight:700;margin:0 0 4px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.ref h3::before{content:"";width:10px;height:22px;border-radius:4px;background:linear-gradient(180deg,var(--accent),var(--accent-2));flex:none}
+.ref p.sub{color:var(--muted);margin:0 0 12px;font-size:14px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.tbl table{border-collapse:collapse;width:100%;font-size:14.5px}
+.tbl th{text-align:left;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:10px 12px;background:var(--panel-2);border-bottom:1px solid var(--line)}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tr:nth-child(odd) td{background:color-mix(in srgb,var(--panel-2) 45%,transparent)}
+.tbl td.n{font-family:var(--mono);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--accent)}
+.ref .srcline{font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+
+/* Timeline */
+.timeline{list-style:none;margin:0;padding:6px 0 6px 0;display:grid;gap:14px;max-width:860px;position:relative}
+.timeline::before{content:"";position:absolute;left:139px;top:12px;bottom:12px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2));border-radius:2px}
+.timeline li{display:grid;grid-template-columns:120px 1fr;gap:38px;position:relative}
+.timeline li::before{content:"";position:absolute;left:133px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--panel);border:3px solid var(--accent);box-sizing:border-box}
+.timeline time{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);padding-top:16px;text-align:right}
+.timeline li > div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 18px;box-shadow:var(--shadow-sm)}
+.timeline h3{margin:0 0 4px;font-size:17px;font-family:var(--display);font-weight:700}
+.timeline p{margin:0;color:var(--muted)}
+@media (max-width:600px){
+  .timeline::before{left:7px}
+  .timeline li{grid-template-columns:1fr;gap:6px;padding-left:28px}
+  .timeline li::before{left:1px;top:3px}
+  .timeline time{text-align:left;padding-top:0}
+  .fields{grid-template-columns:1fr}
+}
+
+.timeline-intro{margin:0 0 18px;color:var(--muted);max-width:70ch}
+.timeline li.year{display:block;padding:6px 0 0;min-height:0}
+.timeline li.year::before{display:none}
+.timeline li.year span{display:inline-block;margin-left:106px;font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.02em;color:var(--accent-ink);background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:4px 14px;border-radius:999px;box-shadow:0 6px 14px -8px var(--accent);position:relative;z-index:1}
+@media (max-width:600px){.timeline li.year{padding-left:0}.timeline li.year span{margin-left:0}}
+footer{margin-top:36px;padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);color:var(--muted);font-size:14px;display:grid;gap:12px}
+footer b{color:var(--ink)}
+footer ul{margin:0;padding-left:18px;columns:2 300px;column-gap:28px}
+footer li{break-inside:avoid;margin-bottom:4px}
+
+/* Loan calculator */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+.kpi{padding:14px 16px;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.kpi .k{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.3vw,27px);line-height:1.15;margin-top:6px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;letter-spacing:-.01em}
+.kpi .s{font-size:12.5px;color:var(--muted);margin-top:3px}
+.kpi.lead{background:linear-gradient(135deg,var(--hero-2),var(--hero-3));border-color:transparent;color:#fff;box-shadow:0 10px 24px -14px var(--hero-2)}
+.kpi.lead .k,.kpi.lead .s{color:rgba(255,255,255,.82)}
+.kpi.lead .v{color:#fff}
+.caps{display:grid;gap:12px}
+.cap{display:grid;grid-template-columns:minmax(130px,200px) 1fr auto;gap:14px;align-items:center;font-size:14.5px}
+.cap .bar{height:14px;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.cap .bar i{display:block;height:100%;border-radius:999px;background:var(--line-2)}
+.cap.bind .bar i{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.cap.bind .nm{font-weight:700;color:var(--accent)}
+.cap .amt{font-family:var(--mono);font-weight:600;font-size:13.5px;white-space:nowrap}
+.cap .na{color:var(--muted);font-size:13px;font-style:italic}
+@media (max-width:560px){.cap{grid-template-columns:1fr auto}.cap .bar{grid-column:1 / -1;order:3}}
+.costs{width:100%;border-collapse:separate;border-spacing:0;font-size:15px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.costs td{padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+.costs tr:first-child td{border-top:0}
+.costs td.amt{text-align:right;font-family:var(--mono);font-weight:600;white-space:nowrap;padding-left:12px}
+.costs td .note{display:block;color:var(--muted);font-size:12.5px}
+.costs tr.total td{font-weight:700;background:var(--accent-soft);border-top:1px solid color-mix(in srgb,var(--accent) 30%,var(--line))}
+.costs tr.sub td{color:var(--muted)}
+.costs tr:last-child td{background:linear-gradient(90deg,var(--teal-soft),var(--accent-soft))}
+.costs tr.total:last-child td{background:var(--accent-soft)}
+.field .hint{font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>SG Home Eligibility Desk</h1>
+      <p class="lede">Can you buy or sell an HDB flat, EC or private home in Singapore? Pick a scenario, describe your household, and see which rules pass, which come with conditions, and which block you — each linked to the HDB, CPF Board or URA page it comes from.</p>
+    </div>
+    <div class="stamp">Rules checked <b>17 Sep 2026</b> · HDB · CPF · URA · IRAS · MAS</div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" id="tab-check" aria-controls="p-check" aria-selected="true">Eligibility checker</button>
+    <button role="tab" id="tab-loan" aria-controls="p-loan" aria-selected="false">Loan &amp; upfront costs</button>
+    <button role="tab" id="tab-qa" aria-controls="p-qa" aria-selected="false">Questions &amp; answers</button>
+    <button role="tab" id="tab-ref" aria-controls="p-ref" aria-selected="false">Rule tables</button>
+    <button role="tab" id="tab-new" aria-controls="p-new" aria-selected="false">Timeline of changes</button>
+  </nav>
+
+  <!-- CHECKER -->
+  <section id="p-check" role="tabpanel" aria-labelledby="tab-check">
+    <div class="checker">
+      <form class="card" id="form" autocomplete="off" onsubmit="return false">
+        <fieldset class="goalset">
+          <legend class="section-label">What do you want to do?</legend>
+          <div class="chips">
+            <div class="grp">Buy</div>
+            <label class="chip"><input type="radio" name="goal" id="g-bto" value="bto"><span>New HDB flat (BTO/SBF)</span></label>
+            <label class="chip"><input type="radio" name="goal" id="g-rs" value="resaleStd" checked><span>Resale flat · Standard</span></label>
+            <label class="chip"><input type="radio" name="goal" id="g-rp" value="resalePlus"><span>Resale · Plus</span></label>
+            <label class="chip"><input type="radio" name="goal" id="g-rpr" value="resalePrime"><span>Resale · Prime</span></label>
+            <label class="chip"><input type="radio" name="goal" id="g-ec" value="ec"><span>New EC</span></label>
+            <label class="chip"><input type="radio" name="goal" id="g-pv" value="private"><span>Private condo / landed</span></label>
+            <div class="grp">Sell</div>
+            <label class="chip"><input type="radio" name="goal" id="g-sh" value="sellHdb"><span>My HDB flat</span></label>
+            <label class="chip"><input type="radio" name="goal" id="g-se" value="sellEc"><span>My EC</span></label>
+            <label class="chip"><input type="radio" name="goal" id="g-sp" value="sellPrivate"><span>My private property</span></label>
+          </div>
+        </fieldset>
+
+        <p class="section-label">About you</p>
+        <div class="fields">
+          <div class="field" data-show="buy">
+            <label for="cit">Your citizenship</label>
+            <select id="cit"><option value="SC">Singapore Citizen</option><option value="SPR">Permanent Resident</option><option value="FOR">Foreigner</option></select>
+          </div>
+          <div class="field">
+            <label for="age">Your age</label>
+            <input type="number" id="age" min="18" max="110" value="32">
+          </div>
+          <div class="field full" data-show="buy">
+            <label for="hh">Buying with</label>
+            <select id="hh">
+              <option value="family">Fiancé(e), spouse, children or parents (SC/SPR)</option>
+              <option value="single">On my own — unmarried or divorced</option>
+              <option value="widowed">On my own — widowed or orphaned</option>
+              <option value="joint">Other single citizens (up to 4 in total)</option>
+              <option value="nonres">Non-resident spouse (not SC or SPR)</option>
+            </select>
+          </div>
+          <div class="field" data-show="family">
+            <label for="partner">Their citizenship</label>
+            <select id="partner"><option value="SC">At least one SC</option><option value="SPR">SPR only</option></select>
+          </div>
+          <div class="field" data-show="buy">
+            <label for="inc">Household income / month</label>
+            <input type="text" inputmode="numeric" class="money" id="inc" value="11000">
+          </div>
+          <label class="check" data-show="family"><input type="checkbox" id="ext"> <span>Extended or multi-generation family (higher income ceiling)</span></label>
+          <label class="check" data-show="spr"><input type="checkbox" id="spr3"> <span>Every SPR buyer has held PR status for at least 3 years</span></label>
+
+          <div class="divider" data-show="buy"></div>
+          <div class="field full" data-show="buy">
+            <label for="sub">Housing subsidies taken before</label>
+            <select id="sub"><option value="0">None — first-timer</option><option value="1">One (e.g. BTO, EC, or resale with grant)</option><option value="2">Two or more</option></select>
+            <small>Counts for you and any core member (e.g. your spouse).</small>
+          </div>
+          <div class="field full" data-show="buy">
+            <label for="home">What you own now</label>
+            <select id="home">
+              <option value="none">No property</option>
+              <option value="hdb">HDB flat</option>
+              <option value="ec">EC</option>
+              <option value="private">Private home (Singapore or overseas)</option>
+            </select>
+          </div>
+          <div class="field full" data-show="hdbClass">
+            <label for="fclass">Flat type</label>
+            <select id="fclass"><option value="std">Standard or unclassified (sold before Oct 2024)</option><option value="plus">Plus or Prime (incl. PLH)</option><option value="dbss">DBSS flat</option><option value="fresh">Fresh Start Housing Scheme</option></select>
+          </div>
+          <div class="field full" data-show="ecTender">
+            <label for="ectender">EC project's land tender closed</label>
+            <select id="ectender"><option value="before">Before 8 May 2026</option><option value="after">On or after 8 May 2026</option></select>
+          </div>
+          <div class="field full" data-show="acq">
+            <label for="bdate">Date acquired</label>
+            <input type="date" id="bdate" value="2022-03-15">
+            <small id="bdate-h">Legal completion date of your purchase</small>
+          </div>
+          <div class="field" data-show="buy">
+            <label for="past">Sold private property before?</label>
+            <select id="past"><option value="never">No</option><option value="disposed">Yes</option></select>
+          </div>
+          <div class="field" data-show="disposed">
+            <label for="pdate">Sale legal completion</label>
+            <input type="date" id="pdate">
+          </div>
+
+          <div class="divider" data-show="resale"></div>
+          <div class="field" data-show="resale">
+            <label for="size">Flat size</label>
+            <select id="size"><option value="2to4">2- to 4-room</option><option value="5plus">5-room or bigger</option></select>
+          </div>
+          <div class="field" data-show="resale">
+            <label for="prox">Parents / child</label>
+            <select id="prox"><option value="none">Not relevant</option><option value="with">Will live with us</option><option value="near">Live within 4 km</option></select>
+          </div>
+          <label class="check" data-show="assist"><input type="checkbox" id="assist" checked> <span>I want CPF housing grants or an HDB housing loan</span></label>
+        </div>
+        <div class="example"><span id="example-note">Filled with an example household — change any field.</span><button type="button" class="btn-ghost" id="reset">Reset example</button></div>
+      </form>
+
+      <article class="card result" aria-live="polite">
+        <div class="verdict">
+          <div class="row"><span class="pill" id="pill"></span><span class="tally" id="tally"></span></div>
+          <h2 id="headline"></h2>
+        </div>
+        <div class="res-body">
+          <div>
+            <h3>Rule by rule</h3>
+            <ul class="checks" id="checks"></ul>
+          </div>
+          <div id="grants-wrap">
+            <h3>Grants you may qualify for</h3>
+            <div class="grants" id="grants"></div>
+          </div>
+          <div id="after-wrap">
+            <h3 id="after-h">After you buy</h3>
+            <ul class="checks" id="after"></ul>
+          </div>
+          <p class="muted" style="font-size:14px;margin:0">This is a guide built from public HDB, CPF and URA pages. HDB decides through the HDB Flat Eligibility (HFE) letter, which also confirms your exact grant and loan amounts.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LOAN CALCULATOR -->
+  <section id="p-loan" role="tabpanel" aria-labelledby="tab-loan" hidden>
+    <div class="checker">
+      <form class="card" id="lform" autocomplete="off" onsubmit="return false">
+        <p class="section-label">Property</p>
+        <div class="fields">
+          <div class="field full">
+            <label for="l-type">Type of purchase</label>
+            <select id="l-type">
+              <option value="hdbNew">New HDB flat (from HDB)</option>
+              <option value="hdbResale">HDB resale flat</option>
+              <option value="ecNew">New EC (from developer)</option>
+              <option value="privResale">Private home — resale or completed</option>
+              <option value="privNew" selected>Private home — new launch</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="l-price">Purchase price</label>
+            <input type="text" inputmode="numeric" class="money" id="l-price" value="1500000">
+          </div>
+          <div class="field" data-l="resale">
+            <label for="l-val">Valuation</label>
+            <input type="text" inputmode="numeric" class="money" id="l-val" placeholder="Same as price">
+          </div>
+          <div class="field" data-l="hdb">
+            <label for="l-lender">Loan from</label>
+            <select id="l-lender"><option value="hdb">HDB</option><option value="bank">Bank</option></select>
+          </div>
+          <div class="field" data-l="lease">
+            <label for="l-lease">Remaining lease (years)</label>
+            <input type="number" id="l-lease" min="1" max="99" value="99">
+          </div>
+          <div class="field" data-l="grants">
+            <label for="l-grants">CPF housing grants</label>
+            <input type="text" inputmode="numeric" class="money" id="l-grants" value="0">
+          </div>
+        </div>
+
+        <p class="section-label" style="margin-top:18px">Buyers</p>
+        <div class="fields">
+          <div class="field">
+            <label for="l-prof">Citizenship of buyers</label>
+            <select id="l-prof">
+              <option value="SC">Singapore Citizen(s)</option>
+              <option value="SCPR">Citizen + Permanent Resident</option>
+              <option value="SCFOR">Citizen + foreigner</option>
+              <option value="PR">Permanent Resident(s) only</option>
+              <option value="FOR">Foreigner(s) only</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="l-hh">Buying as</label>
+            <select id="l-hh"><option value="family">Couple or family</option><option value="single">Single(s)</option></select>
+          </div>
+          <label class="check" data-l="fta"><input type="checkbox" id="l-fta"> <span>The foreign buyer is a US national, or a national or PR of Iceland, Liechtenstein, Norway or Switzerland</span></label>
+          <div class="field full">
+            <label for="l-owned">Homes already owned</label>
+            <select id="l-owned"><option value="0">None</option><option value="hdb">1 HDB flat</option><option value="priv">1 private home or EC (Singapore or overseas)</option><option value="2">2 or more</option></select>
+          </div>
+          <label class="check" data-l="couple"><input type="checkbox" id="l-couple"> <span id="l-couple-t">We're a married couple buying in both our names only</span></label>
+          <div class="field">
+            <label for="l-hl">Outstanding home loans</label>
+            <select id="l-hl"><option value="0">None</option><option value="1">1</option><option value="2">2 or more</option></select>
+          </div>
+          <div class="field">
+            <label for="l-age">Borrower age</label>
+            <input type="number" id="l-age" min="21" max="80" value="34">
+            <span class="hint">Joint: income-weighted average</span>
+          </div>
+        </div>
+
+        <p class="section-label" style="margin-top:18px">Monthly income &amp; loan expenses</p>
+        <div class="fields">
+          <div class="field">
+            <label for="l-fixed">Fixed gross income</label>
+            <input type="text" inputmode="numeric" class="money" id="l-fixed" value="16000">
+            <span class="hint">All borrowers, before CPF</span>
+          </div>
+          <div class="field">
+            <label for="l-var">Variable income</label>
+            <input type="text" inputmode="numeric" class="money" id="l-var" value="2000">
+            <span class="hint">Avg bonus, commission, rent</span>
+          </div>
+          <div class="field">
+            <label for="l-pdebt">Existing home loan instalments</label>
+            <input type="text" inputmode="numeric" class="money" id="l-pdebt" value="0">
+          </div>
+          <div class="field">
+            <label for="l-odebt">Other loan repayments</label>
+            <input type="text" inputmode="numeric" class="money" id="l-odebt" value="900">
+            <span class="hint">Car, student, renovation, credit card minimums</span>
+          </div>
+        </div>
+
+        <p class="section-label" style="margin-top:18px">Loan &amp; fees</p>
+        <div class="fields">
+          <div class="field">
+            <label for="l-rate">Interest rate (% a year)</label>
+            <input type="number" id="l-rate" min="0" max="15" step="0.05" value="3">
+            <span class="hint" id="l-rate-h">Your bank's quoted rate</span>
+          </div>
+          <div class="field">
+            <label for="l-tenure">Loan tenure (years)</label>
+            <input type="number" id="l-tenure" min="1" max="35" value="30">
+          </div>
+          <div class="field">
+            <label for="l-want">Loan you'll take</label>
+            <input type="text" inputmode="numeric" class="money" id="l-want" placeholder="Maximum">
+          </div>
+          <div class="field">
+            <label for="l-cpf">CPF OA available</label>
+            <input type="text" inputmode="numeric" class="money" id="l-cpf" value="120000">
+          </div>
+          <div class="field">
+            <label for="l-legal">Legal fees</label>
+            <input type="text" inputmode="numeric" class="money" id="l-legal" value="3000">
+            <span class="hint">Your estimate — use your lawyer's quote</span>
+          </div>
+          <div class="field">
+            <label for="l-other">Other fees</label>
+            <input type="text" inputmode="numeric" class="money" id="l-other" value="500">
+            <span class="hint">Valuation, fire insurance, etc.</span>
+          </div>
+        </div>
+
+        <p class="section-label" style="margin-top:18px">Property tax</p>
+        <div class="fields">
+          <div class="field">
+            <label for="l-av">Annual Value</label>
+            <input type="text" inputmode="numeric" class="money" id="l-av" value="48000">
+            <span class="hint">IRAS's estimate of the yearly rent. It's on your property tax bill.</span>
+          </div>
+          <div class="field">
+            <label for="l-occ">Who lives there</label>
+            <select id="l-occ"><option value="oo">You (owner-occupied)</option><option value="noo">Tenants, or left empty</option></select>
+          </div>
+          <label class="check" data-l="hdbsmall"><input type="checkbox" id="l-small"> <span>1- or 2-room HDB flat</span></label>
+        </div>
+        <div class="example"><span>Filled with an example purchase — change any field.</span><button type="button" class="btn-ghost" id="l-reset">Reset example</button></div>
+      </form>
+
+      <article class="card result" aria-live="polite">
+        <div class="verdict">
+          <div class="row"><span class="pill" id="l-pill"></span><span class="tally" id="l-tally"></span></div>
+          <h2 id="l-headline"></h2>
+        </div>
+        <div class="kpis" id="l-kpis">
+          <div class="kpi lead"><div class="k">Max loan approved</div><div class="v" id="k-loan"></div><div class="s" id="k-loan-s"></div></div>
+          <div class="kpi"><div class="k">Monthly instalment</div><div class="v" id="k-inst"></div><div class="s" id="k-inst-s"></div></div>
+          <div class="kpi"><div class="k">Upfront payment</div><div class="v" id="k-up"></div><div class="s" id="k-up-s"></div></div>
+          <div class="kpi"><div class="k">Cash needed</div><div class="v" id="k-cash"></div><div class="s" id="k-cash-s"></div></div>
+          <div class="kpi"><div class="k">Property tax / year</div><div class="v" id="k-ptax"></div><div class="s" id="k-ptax-s"></div></div>
+        </div>
+        <div class="res-body">
+          <div id="l-blocks-wrap" hidden>
+            <h3>Why you're not eligible</h3>
+            <ul class="checks" id="l-blocks"></ul>
+          </div>
+          <div class="l-fig">
+            <h3>What limits your loan</h3>
+            <div class="caps" id="caps"></div>
+          </div>
+          <div class="l-fig">
+            <h3>Upfront payments</h3>
+            <table class="costs" id="costs"></table>
+          </div>
+          <div class="l-fig">
+            <h3>Yearly costs</h3>
+            <table class="costs" id="yearly"></table>
+          </div>
+          <div class="l-fig">
+            <h3>How this was worked out</h3>
+            <ul class="checks" id="l-notes"></ul>
+          </div>
+          <p class="muted" style="font-size:14px;margin:0">An estimate using MAS, HDB, IRAS and CPF rules. Banks and HDB also look at job stability, credit history and their own policies, so the actual offer can be lower. Get an In-Principle Approval or HFE letter before you commit.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Q&A -->
+  <section id="p-qa" role="tabpanel" aria-labelledby="tab-qa" hidden>
+    <div class="qa-tools">
+      <input type="search" id="q" placeholder="Search e.g. “MOP”, “PR”, “30 months”, “CPF refund”" aria-label="Search questions">
+      <div class="tagbar" id="tagbar"></div>
+    </div>
+    <div class="qa-list" id="qa-list"></div>
+  </section>
+
+  <!-- TABLES -->
+  <section id="p-ref" role="tabpanel" aria-labelledby="tab-ref" hidden>
+    <div class="ref-grid">
+      <div class="card ref">
+        <h3>Monthly household income ceilings</h3>
+        <p class="sub">For HFE letters applied for from 24 Aug 2026.</p>
+        <div class="tbl"><table>
+          <tr><th>What you're buying</th><th>Ceiling</th></tr>
+          <tr><td>New flat or resale Plus/Prime — families (3- to 5-room)</td><td class="n">$16,000</td></tr>
+          <tr><td>Same, with extended or multi-generation family</td><td class="n">$24,000</td></tr>
+          <tr><td>2-room Flexi (99-year), some 3-room projects, 2-room resale Prime; singles</td><td class="n">$8,000</td></tr>
+          <tr><td>Resale Plus flat — singles</td><td class="n">$16,000</td></tr>
+          <tr><td>Short-lease 2-room Flexi / Community Care Apartment (55+)</td><td class="n">$16,000</td></tr>
+          <tr><td>Resale Standard/unclassified flat</td><td class="n">None*</td></tr>
+          <tr><td>HDB housing loan — families / extended / singles</td><td class="n">$16,000 / $24,000 / $8,000</td></tr>
+          <tr><td>New EC — land tender closed on/after 24 Aug 2026</td><td class="n">$18,000</td></tr>
+          <tr><td>New EC — earlier sites</td><td class="n">$16,000</td></tr>
+        </table></div>
+        <p class="srcline">* Ceilings still apply for CPF housing grants (except the Proximity Housing Grant) and HDB loans. Sources: <a href="https://www.hdb.gov.sg/hdb-pulse/news/2026/increase-in-income-ceilings-and-greater-support-for-families-with-children" target="_blank" rel="noopener">HDB news, 23 Aug 2026</a>, <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families" target="_blank" rel="noopener">HDB eligibility</a>, <a href="https://www.hdb.gov.sg/buying-a-flat/executive-condominiums/eligibility" target="_blank" rel="noopener">EC eligibility</a></p>
+      </div>
+
+      <div class="card ref">
+        <h3>Minimum occupation period (MOP)</h3>
+        <p class="sub">Time you must live in the home before you can sell it, rent out the whole unit, or buy private property.</p>
+        <div class="tbl"><table>
+          <tr><th>Home</th><th>MOP</th><th>Counted from</th></tr>
+          <tr><td>Standard / unclassified flat (new or resale)</td><td class="n">5 years</td><td>Legal completion</td></tr>
+          <tr><td>Plus or Prime flat (new or resale)</td><td class="n">10 years</td><td>Legal completion</td></tr>
+          <tr><td>DBSS flat</td><td class="n">5 years</td><td>Legal completion</td></tr>
+          <tr><td>Fresh Start Housing Scheme flat</td><td class="n">20 years</td><td>Legal completion</td></tr>
+          <tr><td>EC — land tender closed on/after 8 May 2026</td><td class="n">10 years</td><td>TOP</td></tr>
+          <tr><td>EC — other projects</td><td class="n">5 years</td><td>TOP</td></tr>
+        </table></div>
+        <p class="srcline">MOP excludes periods you didn't live in the flat (e.g. approved whole-flat rental). Sources: <a href="https://www.hdb.gov.sg/managing-my-home/selling-a-flat/eligibility" target="_blank" rel="noopener">HDB selling eligibility</a>, <a href="https://www.hdb.gov.sg/buying-a-flat/executive-condominiums/conditions-after-buying-an-ec" target="_blank" rel="noopener">EC conditions</a></p>
+      </div>
+
+      <div class="card ref">
+        <h3>CPF Housing Grants — resale flats</h3>
+        <p class="sub">Paid into buyers' CPF Ordinary Accounts. Remaining lease must be more than 20 years.</p>
+        <div class="tbl"><table>
+          <tr><th>Grant</th><th>2–4 room</th><th>5-room+</th></tr>
+          <tr><td>Family Grant — SC/SC first-timers</td><td class="n">$80,000</td><td class="n">$50,000</td></tr>
+          <tr><td>Family Grant — SC/SPR first-timers</td><td class="n">$70,000</td><td class="n">$40,000</td></tr>
+          <tr><td>Family Grant — first-timer + second-timer couple</td><td class="n">$40,000</td><td class="n">$25,000</td></tr>
+          <tr><td>Singles Grant — per first-timer SC single</td><td class="n">$40,000</td><td class="n">$25,000</td></tr>
+          <tr><td>Enhanced CPF Housing Grant — families (income ≤ $9,000)</td><td class="n" colspan="2">up to $120,000</td></tr>
+          <tr><td>Enhanced CPF Housing Grant — singles (income ≤ $4,500)</td><td class="n" colspan="2">up to $60,000</td></tr>
+          <tr><td>Proximity Housing Grant — live with parents/child</td><td class="n" colspan="2">$30,000</td></tr>
+          <tr><td>Proximity Housing Grant — live within 4 km</td><td class="n" colspan="2">$20,000</td></tr>
+        </table></div>
+        <p class="srcline">The Enhanced CPF Housing Grant also applies to new flats; it's graded by income and needs 12 months' continuous work. Sources: <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families/cpf-housing-grants" target="_blank" rel="noopener">Family Grant</a>, <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families/enhanced-cpf-housing-grant" target="_blank" rel="noopener">Enhanced grant</a>, <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families/proximity-housing-grant" target="_blank" rel="noopener">Proximity grant</a>, <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/singles/cpf-housing-grant" target="_blank" rel="noopener">Singles Grant</a></p>
+      </div>
+
+      <div class="card ref">
+        <h3>Resale levy — second subsidised flat</h3>
+        <p class="sub">Paid only when you buy another subsidised flat or a new EC. First subsidised flat sold on/after 3 Mar 2006.</p>
+        <div class="tbl"><table>
+          <tr><th>First subsidised home</th><th>Family</th><th>Single</th></tr>
+          <tr><td>2-room / 2-room Flexi</td><td class="n">$15,000</td><td class="n">$7,500</td></tr>
+          <tr><td>3-room</td><td class="n">$30,000</td><td class="n">$15,000</td></tr>
+          <tr><td>4-room</td><td class="n">$40,000</td><td class="n">$20,000</td></tr>
+          <tr><td>5-room</td><td class="n">$45,000</td><td class="n">$22,500</td></tr>
+          <tr><td>3Gen</td><td class="n">$45,000</td><td class="n">—</td></tr>
+          <tr><td>Executive flat</td><td class="n">$50,000</td><td class="n">$25,000</td></tr>
+          <tr><td>Executive Condominium</td><td class="n">$55,000</td><td class="n">$27,500</td></tr>
+        </table></div>
+        <p class="srcline">No levy when your next home is a resale flat without grants or a private property. Source: <a href="https://www.hdb.gov.sg/buying-a-flat/bto-sbf-and-open-booking-of-flats/conditions-after-buying-a-new-flat" target="_blank" rel="noopener">HDB conditions after buying</a></p>
+      </div>
+
+      <div class="card ref">
+        <h3>Private property owners buying HDB or EC</h3>
+        <p class="sub">Applies to private homes in Singapore or overseas, including ECs and privatised HUDC flats.</p>
+        <div class="tbl"><table>
+          <tr><th>Purchase</th><th>Rule</th></tr>
+          <tr><td>New HDB flat; resale Plus/Prime; resale with CPF grants; any HDB loan; new EC</td><td>Must not own private property, and must have sold it at least <b>30 months</b> before applying</td></tr>
+          <tr><td>Resale Standard/unclassified flat, no grants (Proximity Housing Grant allowed), no HDB loan</td><td>No wait-out since 28 Jul 2026 — sell the private property within <b>6 months</b> of completing the flat purchase</td></tr>
+          <tr><td>Short-lease 2-room Flexi / Community Care Apartment (55+)</td><td>Sell private property within <b>6 months</b> of completing the flat purchase</td></tr>
+        </table></div>
+        <p class="srcline">Example from HDB: a sale that completed on 1 Jul 2024 allows an application from 1 Jan 2027. Sources: <a href="https://www.hdb.gov.sg/hdb-pulse/news/2026/removal-of-the-15-month-wait-out-period-for-private-residential-property-owners" target="_blank" rel="noopener">HDB news, 28 Jul 2026</a>, <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families" target="_blank" rel="noopener">HDB eligibility</a></p>
+      </div>
+
+      <div class="card ref">
+        <h3>Loans and CPF usage</h3>
+        <p class="sub">How much you can borrow, and how much CPF you can use.</p>
+        <div class="tbl"><table>
+          <tr><th>Item</th><th>Rule</th></tr>
+          <tr><td>HDB loan loan-to-value limit</td><td class="n">75%</td></tr>
+          <tr><td>HDB loan tenure</td><td>Shortest of 25 years; 65 minus buyers' average age; remaining lease minus 20 years</td></tr>
+          <tr><td>HDB loan limit</td><td>At most 2 HDB loans; pro-rated if lease doesn't cover youngest buyer to 95</td></tr>
+          <tr><td>CPF — new flat, HDB loan</td><td>Up to the full purchase price</td></tr>
+          <tr><td>CPF — resale flat, HDB loan</td><td>Lower of price or valuation; more for the loan if Basic Retirement Sum set aside</td></tr>
+          <tr><td>CPF — bank loan (HDB or private)</td><td>Lower of price or valuation; up to 120% of it if Basic Retirement Sum set aside</td></tr>
+          <tr><td>CPF — short lease</td><td>Pro-rated if lease can't cover youngest CPF user to age 95</td></tr>
+        </table></div>
+        <p class="srcline">Sources: <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/housing-loan/housing-loan-from-hdb" target="_blank" rel="noopener">HDB housing loan</a>, <a href="https://www.cpf.gov.sg/member/infohub/educational-resources/how-much-cpf-savings-you-can-use-for-your-home-purchase" target="_blank" rel="noopener">CPF Board</a></p>
+      </div>
+
+      <div class="card ref">
+        <h3>Bank loan limits</h3>
+        <p class="sub">MAS rules for loans from banks and finance companies.</p>
+        <div class="tbl"><table>
+          <tr><th>Outstanding home loans</th><th>LTV</th><th>Min. cash down</th></tr>
+          <tr><td>None</td><td class="n">75% / 55%</td><td class="n">5% / 10%</td></tr>
+          <tr><td>1</td><td class="n">45% / 25%</td><td class="n">25%</td></tr>
+          <tr><td>2 or more</td><td class="n">35% / 15%</td><td class="n">25%</td></tr>
+        </table></div>
+        <div class="tbl" style="margin-top:10px"><table>
+          <tr><th>Rule</th><th>Limit</th></tr>
+          <tr><td>Lower LTV applies if tenure is over</td><td>30 years (25 for HDB flats), or the loan runs past age 65</td></tr>
+          <tr><td>Maximum tenure</td><td class="n">30 yrs HDB · 35 yrs other</td></tr>
+          <tr><td>Total Debt Servicing Ratio (all debts)</td><td class="n">55% of income</td></tr>
+          <tr><td>Mortgage Servicing Ratio (HDB flats, ECs within MOP)</td><td class="n">30% of income</td></tr>
+          <tr><td>Stress-test interest rate</td><td>Higher of 4% or the bank's thereafter rate (HDB loans: higher of 3% or HDB's rate)</td></tr>
+          <tr><td>Variable and rental income</td><td>At least a 30% haircut</td></tr>
+        </table></div>
+        <p class="srcline">Sources: <a href="https://www.mas.gov.sg/regulation/explainers/new-housing-loans/loan-tenure-and-loan-to-value-limits" target="_blank" rel="noopener">MAS LTV limits</a>, <a href="https://www.mas.gov.sg/regulation/explainers/new-housing-loans/msr-and-tdsr-rules" target="_blank" rel="noopener">MAS MSR &amp; TDSR</a>, <a href="https://www.mas.gov.sg/regulation/explainers/tdsr-for-property-loans/calculating-tdsr" target="_blank" rel="noopener">MAS TDSR calculation</a>, <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/housing-loan/housing-loan-from-hdb" target="_blank" rel="noopener">HDB loan</a></p>
+      </div>
+
+      <div class="card ref">
+        <h3>Stamp duties on homes</h3>
+        <p class="sub">On the higher of price or market value. Rounded down to the dollar.</p>
+        <div class="tbl"><table>
+          <tr><th>Buyer's Stamp Duty (from 15 Feb 2023)</th><th>Rate</th></tr>
+          <tr><td>First $180,000</td><td class="n">1%</td></tr>
+          <tr><td>Next $180,000</td><td class="n">2%</td></tr>
+          <tr><td>Next $640,000</td><td class="n">3%</td></tr>
+          <tr><td>Next $500,000</td><td class="n">4%</td></tr>
+          <tr><td>Next $1,500,000</td><td class="n">5%</td></tr>
+          <tr><td>Remainder (above $3,000,000)</td><td class="n">6%</td></tr>
+        </table></div>
+        <div class="tbl" style="margin-top:10px"><table>
+          <tr><th>Additional Buyer's Stamp Duty (from 27 Apr 2023)</th><th>1st</th><th>2nd</th><th>3rd+</th></tr>
+          <tr><td>Singapore Citizen</td><td class="n">0%</td><td class="n">20%</td><td class="n">30%</td></tr>
+          <tr><td>Permanent Resident</td><td class="n">5%</td><td class="n">30%</td><td class="n">35%</td></tr>
+          <tr><td>Foreigner</td><td class="n" colspan="3">60%</td></tr>
+          <tr><td>Entity / trustee</td><td class="n" colspan="3">65%</td></tr>
+        </table></div>
+        <div class="tbl" style="margin-top:10px"><table>
+          <tr><th>Seller's Stamp Duty — sold within</th><th>Bought from 4 Jul 2025</th><th>11 Mar 2017 – 3 Jul 2025</th></tr>
+          <tr><td>1 year</td><td class="n">16%</td><td class="n">12%</td></tr>
+          <tr><td>2 years</td><td class="n">12%</td><td class="n">8%</td></tr>
+          <tr><td>3 years</td><td class="n">8%</td><td class="n">4%</td></tr>
+          <tr><td>4 years</td><td class="n">4%</td><td class="n">—</td></tr>
+        </table></div>
+        <p class="srcline">Mortgage duty: 0.4% of the loan, capped at $500. ABSD is fully waived on HDB flats and new ECs when any buyer is a citizen (PR-only HDB buyers pay 5%). Married couples with a citizen spouse pay no ABSD on their first home bought together. Married couples (at least one SC) buying a second home jointly can get the ABSD refunded if they sell the first within 6 months. Sources: <a href="https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/buyer's-stamp-duty-(bsd)" target="_blank" rel="noopener">IRAS BSD</a>, <a href="https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/additional-buyer's-stamp-duty-(absd)" target="_blank" rel="noopener">IRAS ABSD</a>, <a href="https://www.iras.gov.sg/taxes/stamp-duty/for-property/selling-or-disposing-property/seller's-stamp-duty-(ssd)-for-residential-property" target="_blank" rel="noopener">IRAS SSD</a>, <a href="https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/mortgage-duty" target="_blank" rel="noopener">IRAS mortgage duty</a></p>
+      </div>
+
+      <div class="card ref">
+        <h3>Property tax on homes</h3>
+        <p class="sub">Yearly tax on the Annual Value (IRAS's estimate of yearly rent), in progressive bands.</p>
+        <div class="tbl"><table>
+          <tr><th>Owner-occupied (from 1 Jan 2025)</th><th>Rate</th></tr>
+          <tr><td>First $12,000</td><td class="n">0%</td></tr>
+          <tr><td>Next $28,000</td><td class="n">4%</td></tr>
+          <tr><td>Next $10,000</td><td class="n">6%</td></tr>
+          <tr><td>Next $25,000</td><td class="n">10%</td></tr>
+          <tr><td>Next $10,000</td><td class="n">14%</td></tr>
+          <tr><td>Next $15,000</td><td class="n">20%</td></tr>
+          <tr><td>Next $40,000</td><td class="n">26%</td></tr>
+          <tr><td>Above $140,000</td><td class="n">32%</td></tr>
+        </table></div>
+        <div class="tbl" style="margin-top:10px"><table>
+          <tr><th>Not owner-occupied (from 1 Jan 2024)</th><th>Rate</th></tr>
+          <tr><td>First $30,000</td><td class="n">12%</td></tr>
+          <tr><td>Next $15,000</td><td class="n">20%</td></tr>
+          <tr><td>Next $15,000</td><td class="n">28%</td></tr>
+          <tr><td>Above $60,000</td><td class="n">36%</td></tr>
+        </table></div>
+        <p class="srcline">1- and 2-room HDB flats their owners live in pay no property tax. 2026 one-off rebate for owner-occupied homes: 15% for HDB flats, 10% (capped at $500) for private homes. Sources: <a href="https://www.iras.gov.sg/taxes/property-tax/property-owners/property-tax-rates" target="_blank" rel="noopener">IRAS property tax rates</a>, <a href="https://www.iras.gov.sg/news-events/newsroom/government-will-grant-one-off-property-tax-rebate-for-all-owner-occupied-residential-properties-in-2026" target="_blank" rel="noopener">IRAS 2026 rebate</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2026 -->
+  <section id="p-new" role="tabpanel" aria-labelledby="tab-new" hidden>
+    <p class="timeline-intro">Key rule changes for buying and selling homes in Singapore since 2016, newest first. Each entry links to the official announcement or rule page.</p>
+    <ol class="timeline">
+      <li class="year"><span>2027</span></li>
+      <li><time>Feb 2027</time><div><h3>Extra ballot chances for children</h3><p>First-timer families with or expecting children get one more ballot chance for each Singapore Citizen child aged 18 or under, in all BTO and SBF applications. <a href="https://www.hdb.gov.sg/hdb-pulse/news/2026/increase-in-income-ceilings-and-greater-support-for-families-with-children" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li class="year"><span>2026</span></li>
+      <li><time>Nov 2026</time><div><h3>Longer Community Care Apartment leases</h3><p>Lease choices of 15–45 years, in 5-year steps. Before this exercise, the range was 15–35 years. <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/seniors" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>25 Sep 2026</time><div><h3>HFE documents due for the November BTO</h3><p>HDB asks buyers to apply for an HFE letter and submit all documents by this date. The November 2026 exercise offers about 7,960 flats in Bedok, Geylang, Sembawang, Tengah, Toa Payoh and Yishun. <a href="https://www.hdb.gov.sg/hdb-pulse/news/2026/increase-in-income-ceilings-and-greater-support-for-families-with-children" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>24 Aug 2026</time><div><h3>Income ceilings raised</h3><p>Families $14,000 → $16,000 and singles $7,000 → $8,000 for new flats, resale with CPF Housing Grant, and HDB loans. New ECs $16,000 → $18,000 for land tenders closing on or after this date. <a href="https://www.hdb.gov.sg/hdb-pulse/news/2026/increase-in-income-ceilings-and-greater-support-for-families-with-children" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>28 Jul 2026</time><div><h3>15-month wait-out removed</h3><p>Private property owners and ex-owners can buy a resale flat without grants or an HDB loan right away, but must sell their private property within 6 months. The 30-month wait-out still applies for new flats, grants, HDB loans and ECs. <a href="https://www.hdb.gov.sg/hdb-pulse/news/2026/removal-of-the-15-month-wait-out-period-for-private-residential-property-owners" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>8 May 2026</time><div><h3>10-year MOP for new EC sites</h3><p>ECs whose land tenders closed on or after 8 May 2026 can be sold on the open market only after 10 years from TOP. Other ECs keep the 5-year MOP. <a href="https://www.hdb.gov.sg/buying-a-flat/executive-condominiums/conditions-after-buying-an-ec" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li class="year"><span>2025</span></li>
+      <li><time>28 Nov 2025</time><div><h3>One-off 2026 property tax rebate announced</h3><p>Owner-occupied HDB flats get 15% off their 2026 bill, and private homes 10% (capped at $500). 1- and 2-room HDB flats continue to pay no property tax. <a href="https://www.iras.gov.sg/news-events/newsroom/government-will-grant-one-off-property-tax-rebate-for-all-owner-occupied-residential-properties-in-2026" target="_blank" rel="noopener">IRAS</a></p></div></li>
+      <li><time>Jul 2025</time><div><h3>Family Care Scheme (Proximity)</h3><p>Replaces the Married Child and Senior Priority Schemes. Married and single children now get priority for new flats to live with or near their parents. <a href="https://www.hdb.gov.sg/hdb-pulse/news/2025/new-fcs-proximity-better-supports-parents-and-children-to-live-closer-together" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>4 Jul 2025</time><div><h3>Seller's Stamp Duty back to 4 years</h3><p>For homes bought from this date, selling within 4 years attracts 16%, 12%, 8% or 4%. HDB owners aren't affected because of the MOP. <a href="https://www.mas.gov.sg/news/media-releases/2025/extension-of-the-holding-period-of-sellers-stamp-duty-and-higher-ssd-rates" target="_blank" rel="noopener">MAS</a></p></div></li>
+      <li><time>1 Jan 2025</time><div><h3>Wider property tax bands for owner-occupiers</h3><p>The 0% band on owner-occupied homes widens from the first $8,000 to the first $12,000 of Annual Value, and the other bands shift up too. <a href="https://www.iras.gov.sg/taxes/property-tax/property-owners/property-tax-rates" target="_blank" rel="noopener">IRAS</a></p></div></li>
+      <li class="year"><span>2024</span></li>
+      <li><time>Oct 2024</time><div><h3>Standard, Plus and Prime flats</h3><p>New flats are classified as Standard, Plus or Prime instead of mature or non-mature estates. Plus and Prime flats carry a 10-year MOP. First-timer singles can apply for 2-room Flexi flats in all locations. <a href="https://www.hdb.gov.sg/buying-a-flat/bto-sbf-and-open-booking-of-flats/finding-a-new-flat/standard-plus-and-prime-housing-framework" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>20 Aug 2024</time><div><h3>HDB loan limit cut to 75%; bigger grants</h3><p>HDB loans drop from 80% to 75% loan-to-value. The Enhanced CPF Housing Grant rises to up to $120,000 for families and $60,000 for singles. <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families/enhanced-cpf-housing-grant" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>1 Jan 2024</time><div><h3>Property tax raised, step 2 of 2</h3><p>Homes not lived in by their owners are taxed at 12% to 36% (up from 10% to 20% before 2023). Owner-occupier rates on higher-value homes rise to a top rate of 32%. <a href="https://www.iras.gov.sg/taxes/property-tax/property-owners/property-tax-rates" target="_blank" rel="noopener">IRAS</a></p></div></li>
+      <li class="year"><span>2023</span></li>
+      <li><time>27 Apr 2023</time><div><h3>ABSD raised to current rates</h3><p>Citizens' 2nd home 20%, 3rd 30%; PRs' 2nd 30%, 3rd 35%; foreigners 60%; entities and trusts 65%. First homes stay at 0% for citizens and 5% for PRs. <a href="https://www.mas.gov.sg/news/media-releases/2023/measures-for-a-sustainable-property-market" target="_blank" rel="noopener">MAS</a></p></div></li>
+      <li><time>15 Feb 2023</time><div><h3>Buyer's Stamp Duty rates up to 6%</h3><p>Home values from $1.5 million to $3 million are charged 5%, and value above $3 million 6%. <a href="https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/buyer's-stamp-duty-(bsd)" target="_blank" rel="noopener">IRAS</a></p></div></li>
+      <li><time>14 Feb 2023</time><div><h3>Bigger CPF Housing Grants for resale flats</h3><p>Families: $50,000 → $80,000 for 4-room or smaller, $40,000 → $50,000 for 5-room or bigger. Singles: $25,000 → $40,000 and $20,000 → $25,000. <a href="https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families/cpf-housing-grants" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>1 Jan 2023</time><div><h3>Property tax raised, step 1 of 2</h3><p>More progressive rates for owner-occupied homes with an Annual Value above $30,000 and for all homes not lived in by their owners. <a href="https://www.mof.gov.sg/news-resources/newsroom/increase-in-residential-property-tax-by-housing-type-since-2023-and-projected-reduction-from-january-2025/" target="_blank" rel="noopener">MOF</a></p></div></li>
+      <li class="year"><span>2022</span></li>
+      <li><time>30 Sep 2022</time><div><h3>15-month wait-out; higher stress-test rates</h3><p>Private property owners must wait 15 months before buying a resale flat without grants (seniors 55+ moving to a 4-room or smaller flat are exempt). HDB loans drop from 85% to 80% loan-to-value. The bank stress-test rate rises from 3.5% to 4%, and HDB sets a 3% floor. <a href="https://www.mas.gov.sg/news/media-releases/2022/measures-to-promote-sustainable-conditions-in-the-property-market-by-ensuring-prudent-borrowing-and-moderating-demand" target="_blank" rel="noopener">MAS</a></p></div></li>
+      <li class="year"><span>2021</span></li>
+      <li><time>16 Dec 2021</time><div><h3>ABSD raised, TDSR and HDB loan limit tightened</h3><p>ABSD: citizens' 2nd home 17%, 3rd 25%; PRs' 2nd 25%, 3rd 30%; foreigners 30%; entities 35%. TDSR falls from 60% to 55%. HDB loans drop from 90% to 85% loan-to-value. <a href="https://www.mas.gov.sg/news/media-releases/2021/measures-to-cool-the-property-market" target="_blank" rel="noopener">MAS</a></p></div></li>
+      <li><time>27 Oct 2021</time><div><h3>Prime Location Public Housing (PLH) model</h3><p>New flats in prime central locations come with extra subsidies, a 10-year MOP, and subsidy recovery when sold. The first project, in Rochor, launches in the November 2021 BTO. <a href="https://www.hdb.gov.sg/about-us/news-and-publications/press-releases/27102021-Prime-location-public-housing-model" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li class="year"><span>2019</span></li>
+      <li><time>11 Sep 2019</time><div><h3>Enhanced CPF Housing Grant introduced; ceilings raised</h3><p>A single grant of up to $80,000 for first-timer families earning up to $9,000 replaces the Additional and Special CPF Housing Grants. The family income ceiling rises from $12,000 to $14,000, with singles set at $7,000 and new ECs at $16,000. <a href="https://www.hdb.gov.sg/business/estate-agents-and-salespersons/letters-to-keos/enhanced-cpf-housing-grant-and-higher-income-ceiling" target="_blank" rel="noopener">HDB</a></p></div></li>
+      <li><time>10 May 2019</time><div><h3>CPF use and HDB loans linked to lease reaching age 95</h3><p>You can use CPF and HDB loans in full only if the remaining lease covers the youngest buyer to age 95. Otherwise the amounts are pro-rated. <a href="https://www.cpf.gov.sg/member/infohub/news/cpf-related-announcements/more-flexibility-to-buy-a-home-for-life-while-safeguarding-retir" target="_blank" rel="noopener">CPF</a></p></div></li>
+      <li class="year"><span>2018</span></li>
+      <li><time>6 Jul 2018</time><div><h3>ABSD raised, bank loan limits tightened</h3><p>ABSD: citizens' 2nd home 7% → 12%, 3rd 10% → 15%; PRs' 2nd and later homes 10% → 15%; foreigners 15% → 20%; entities 15% → 25%. Bank loan-to-value limits fall by 5 points, so a first home loan tops out at 75%. <a href="https://www.mas.gov.sg/news/media-releases/2018/raising-additional-buyers-stamp-duty-rates-and-tightening-loan-to-value-limits" target="_blank" rel="noopener">MAS</a></p></div></li>
+      <li><time>20 Feb 2018</time><div><h3>Buyer's Stamp Duty top rate raised to 4%</h3><p>The top rate on homes goes from 3% to 4%, charged on the value above $1 million. <a href="https://www.mof.gov.sg/news-resources/newsroom/buyer-s-stamp-duty-bsd-rate-to-be-raised-budget2018/" target="_blank" rel="noopener">MOF</a></p></div></li>
+      <li class="year"><span>2017</span></li>
+      <li><time>11 Mar 2017</time><div><h3>Seller's Stamp Duty eased</h3><p>The holding period drops from 4 to 3 years, and rates fall by 4 points to 12%, 8% and 4%. TDSR no longer applies to mortgage equity withdrawal loans of 50% loan-to-value or less. <a href="https://www.mas.gov.sg/news/media-releases/2017/joint-press-release-on-measures-relating-to-residential-property" target="_blank" rel="noopener">MAS</a></p></div></li>
+      <li class="year"><span>2016</span></li>
+      <li><time>1 Dec 2016</time><div><h3>Fresh Start Housing Scheme opens</h3><p>Second-timer families with children living in public rental flats can buy a 2-room Flexi or 3-room Standard flat on a shorter lease. These flats carry a 20-year MOP. <a href="https://www.hdb.gov.sg/buying-a-flat/bto-sbf-and-open-booking-of-flats/process-for-buying-a-new-flat/application/fresh-start-housing-scheme" target="_blank" rel="noopener">HDB</a></p></div></li>
+    </ol>
+  </section>
+
+  <footer>
+    <div><b>Sources used</b> (all read on 17 Sep 2026). Eligibility rules come from HDB, CPF Board and URA. The loan calculator also uses IRAS (stamp duties, property tax) and MAS (bank loan limits). Legal and other fees aren't set by any agency, so they're your own estimates.</div>
+    <ul id="srclist"></ul>
+  </footer>
+</div>
+
+<script>
+const S = {
+  fam:["HDB — Couples and families eligibility","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families"],
+  sing:["HDB — Singles eligibility","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/singles"],
+  sen:["HDB — Seniors","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/seniors"],
+  cpfg:["HDB — CPF Housing Grants (resale, families)","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families/cpf-housing-grants"],
+  ehg:["HDB — Enhanced CPF Housing Grant (families)","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families/enhanced-cpf-housing-grant"],
+  phg:["HDB — Proximity Housing Grant","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families/proximity-housing-grant"],
+  singg:["HDB — CPF Housing Grant (singles)","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/singles/cpf-housing-grant"],
+  sehg:["HDB — Enhanced CPF Housing Grant (singles)","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/singles/enhanced-cpf-housing-grant"],
+  loan:["HDB — Housing loan from HDB","https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/housing-loan/housing-loan-from-hdb"],
+  after:["HDB — Conditions after buying a new flat","https://www.hdb.gov.sg/buying-a-flat/bto-sbf-and-open-booking-of-flats/conditions-after-buying-a-new-flat"],
+  sell:["HDB — Eligibility for selling a flat","https://www.hdb.gov.sg/managing-my-home/selling-a-flat/eligibility"],
+  ec:["HDB — Eligibility for buying an EC","https://www.hdb.gov.sg/buying-a-flat/executive-condominiums/eligibility"],
+  ecafter:["HDB — Conditions after buying an EC","https://www.hdb.gov.sg/buying-a-flat/executive-condominiums/conditions-after-buying-an-ec"],
+  ecg:["HDB — CPF Housing Grant for an EC","https://www.hdb.gov.sg/buying-a-flat/executive-condominiums/cpf-housing-grant"],
+  inc26:["HDB — Income ceilings raised (23 Aug 2026)","https://www.hdb.gov.sg/hdb-pulse/news/2026/increase-in-income-ceilings-and-greater-support-for-families-with-children"],
+  wait26:["HDB — 15-month wait-out removed (28 Jul 2026)","https://www.hdb.gov.sg/hdb-pulse/news/2026/removal-of-the-15-month-wait-out-period-for-private-residential-property-owners"],
+  cpfuse:["CPF — How much CPF you can use for a home","https://www.cpf.gov.sg/member/infohub/educational-resources/how-much-cpf-savings-you-can-use-for-your-home-purchase"],
+  cpfref:["CPF — Refund when selling or transferring property","https://www.cpf.gov.sg/member/home-ownership/using-your-cpf-to-buy-a-home/cpf-refund-when-selling-or-transferring-property"],
+  ura:["URA — Buying property","https://www.ura.gov.sg/guidelines/property-and-business-owners/property/buying-property/"],
+  hdbfin:["HDB — Mode of financing for a resale flat","https://www.hdb.gov.sg/buying-a-flat/resale-flats/process-for-buying-a-resale-flat/resale-flat-planning/mode-of-financing"],
+  bsd:["IRAS — Buyer's Stamp Duty","https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/buyer's-stamp-duty-(bsd)"],
+  absd:["IRAS — Additional Buyer's Stamp Duty","https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/additional-buyer's-stamp-duty-(absd)"],
+  absdrem:["IRAS — ABSD remission for married couples","https://www.iras.gov.sg/taxes/stamp-duty/for-property/appeals-refunds-reliefs-and-remissions/common-stamp-duty-remissions-and-reliefs-for-property/remission-of-absd-for-a-married-couple"],
+  ssd:["IRAS — Seller's Stamp Duty (residential)","https://www.iras.gov.sg/taxes/stamp-duty/for-property/selling-or-disposing-property/seller's-stamp-duty-(ssd)-for-residential-property"],
+  mduty:["IRAS — Mortgage duty","https://www.iras.gov.sg/taxes/stamp-duty/for-property/buying-or-acquiring-property/mortgage-duty"],
+  masltv:["MAS — Loan tenure and LTV limits","https://www.mas.gov.sg/regulation/explainers/new-housing-loans/loan-tenure-and-loan-to-value-limits"],
+  masmsr:["MAS — MSR and TDSR rules","https://www.mas.gov.sg/regulation/explainers/new-housing-loans/msr-and-tdsr-rules"],
+  mastdsr:["MAS — Calculating TDSR","https://www.mas.gov.sg/regulation/explainers/tdsr-for-property-loans/calculating-tdsr"],
+  absdhdb:["IRAS — ABSD remission for HDB flats and new ECs","https://www.iras.gov.sg/taxes/stamp-duty/for-property/appeals-refunds-reliefs-and-remissions/common-stamp-duty-remissions-and-reliefs-for-property/Acquisition-of-HDB-Flats-and-new-Executive-Condominium-(EC)-Units"],
+  absdfta:["IRAS — ABSD remission under Free Trade Agreements","https://www.iras.gov.sg/taxes/stamp-duty/for-property/appeals-refunds-reliefs-and-remissions/common-stamp-duty-remissions-and-reliefs-for-property/foreigners-eligible-for-absd-remission-under-free-trade-agreements-(ftas)"],
+  ptax:["IRAS — Property tax rates","https://www.iras.gov.sg/taxes/property-tax/property-owners/property-tax-rates"],
+  ptaxreb:["IRAS — 2026 property tax rebate","https://www.iras.gov.sg/news-events/newsroom/government-will-grant-one-off-property-tax-rebate-for-all-owner-occupied-residential-properties-in-2026"]
+};
+const SHORT = {fam:"HDB",sing:"HDB",sen:"HDB",cpfg:"HDB",ehg:"HDB",phg:"HDB",singg:"HDB",sehg:"HDB",loan:"HDB",after:"HDB",sell:"HDB",ec:"HDB",ecafter:"HDB",ecg:"HDB",inc26:"HDB 2026",wait26:"HDB 2026",cpfuse:"CPF",cpfref:"CPF",ura:"URA",hdbfin:"HDB",bsd:"IRAS",absd:"IRAS",absdrem:"IRAS",ssd:"IRAS",mduty:"IRAS",masltv:"MAS",masmsr:"MAS",mastdsr:"MAS",ptax:"IRAS",ptaxreb:"IRAS",absdhdb:"IRAS",absdfta:"IRAS"};
+const srcLink = k => k ? `<span class="src">· <a href="${S[k][1]}" target="_blank" rel="noopener" title="${S[k][0]}">${SHORT[k]}</a></span>` : "";
+
+const $ = id => document.getElementById(id);
+const TODAY = new Date(); TODAY.setHours(0,0,0,0);
+const m = n => "$" + Math.round(n).toLocaleString("en-SG");
+const fmtD = d => d.toLocaleDateString("en-SG",{day:"numeric",month:"short",year:"numeric"});
+function addMonths(d,n){const x=new Date(d);const day=x.getDate();x.setMonth(x.getMonth()+n);if(x.getDate()<day)x.setDate(0);x.setHours(0,0,0,0);return x}
+const parseD = v => { if(!v) return null; const [y,mo,da]=v.split("-").map(Number); return new Date(y,mo-1,da); };
+const BUY = ["bto","resaleStd","resalePlus","resalePrime","ec","private"];
+
+const moneyVal = el => +el.value.replace(/[^\d.]/g,"") || 0;
+// Seller's Stamp Duty rate if sold today, per IRAS schedules
+function ssdToday(b){
+  if (!b) return null;
+  const sched = b >= new Date(2025,6,4) ? [16,12,8,4] : b >= new Date(2017,2,11) ? [12,8,4] : b >= new Date(2011,0,14) ? [16,12,8,4] : null;
+  if (!sched) return null;
+  const end = addMonths(b, sched.length*12);
+  if (end <= TODAY) return null;
+  let yr = 0; while (addMonths(b,(yr+1)*12) < TODAY) yr++;
+  return {pct:sched[yr], end};
+}
+function state(){
+  const s = {
+    goal: document.querySelector('input[name="goal"]:checked').value,
+    cit:$("cit").value, hh:$("hh").value, partner:$("partner").value, ext:$("ext").checked, spr3:$("spr3").checked,
+    age:+$("age").value||0, inc:moneyVal($("inc")), sub:+$("sub").value, homeRaw:$("home").value, past:$("past").value,
+    pdate:parseD($("pdate").value), assist:$("assist").checked, size:$("size").value, prox:$("prox").value,
+    fclass:$("fclass").value, ectender:$("ectender").value, bdate:parseD($("bdate").value), mopEnd:null, noAcq:false
+  };
+  // Work out whether the current flat/EC has met its MOP from the date acquired
+  s.home = s.homeRaw;
+  if (BUY.includes(s.goal) && (s.homeRaw==="hdb" || s.homeRaw==="ec")){
+    const yrs = s.homeRaw==="hdb" ? {std:5,plus:10,dbss:5,fresh:20}[s.fclass] : (s.ectender==="after" ? 10 : 5);
+    if (s.bdate){ s.mopEnd = addMonths(s.bdate, yrs*12); s.home = s.homeRaw + (s.mopEnd > TODAY ? "Pre" : "Post"); }
+    else { s.home = s.homeRaw + "Post"; s.noAcq = true; }
+  }
+  return s;
+}
+const SHOW = {
+  buy: s => BUY.includes(s.goal),
+  family: s => BUY.includes(s.goal) && s.goal!=="private" && s.hh==="family",
+  spr: s => BUY.includes(s.goal) && s.goal!=="private" && s.cit==="SPR",
+  disposed: s => BUY.includes(s.goal) && s.past==="disposed",
+  resale: s => ["resaleStd","resalePlus","resalePrime"].includes(s.goal),
+  assist: s => s.goal==="resaleStd",
+  hdbClass: s => s.goal==="sellHdb" || (BUY.includes(s.goal) && s.homeRaw==="hdb"),
+  ecTender: s => s.goal==="sellEc" || (BUY.includes(s.goal) && s.homeRaw==="ec"),
+  acq: s => s.goal.startsWith("sell") || (BUY.includes(s.goal) && s.homeRaw!=="none")
+};
+function updateVis(s){
+  document.querySelectorAll("[data-show]").forEach(el => { el.hidden = !SHOW[el.dataset.show](s); });
+  // household select is irrelevant for private purchases
+  const hhField = $("hh").closest(".field"); if (s.goal==="private") hhField.hidden = true;
+  const isEc = s.goal==="sellEc" || (BUY.includes(s.goal) && s.homeRaw==="ec");
+  const isPriv = s.goal==="sellPrivate" || (BUY.includes(s.goal) && s.homeRaw==="private");
+  $("bdate-h").textContent = isEc ? "TOP date of the EC (its MOP counts from TOP)" : isPriv ? "Date you accepted the Option to Purchase or signed the S&P Agreement" : "Legal completion date of your flat purchase";
+}
+
+function privState(s){
+  if (s.home==="private" || s.home==="ecPost") return {k:"own"};
+  if (s.past==="disposed" && s.pdate){ const c = addMonths(s.pdate,30); return c > TODAY ? {k:"recent",clear:c} : {k:"clear"}; }
+  return {k:"clear"};
+}
+
+function evaluate(s){
+  const R = {checks:[], grants:[], after:[], afterTitle:"After you buy"};
+  const add = (list,kind,text,src) => R[list].push({kind,text,src});
+  const ok=(t,src)=>add("checks","ok",t,src), warn=(t,src)=>add("checks","warn",t,src), no=(t,src)=>add("checks","no",t,src), info=(t,src)=>add("checks","info",t,src);
+  const aft=(t,src,kind="info")=>add("after",kind,t,src);
+  const grant=(name,amt,note,src,upTo)=>R.grants.push({name,amt,note,src,upTo});
+  const singleish = s.hh!=="family";
+  const p = privState(s);
+
+  function propWait(what){
+    if (p.k==="own") no(`You own private residential property (a condo, landed home, EC after MOP, or overseas home). For ${what} you must sell it and wait 30 months from the sale's legal completion.`,"fam");
+    else if (p.k==="recent") no(`Your private property sale completed less than 30 months ago. You can apply for an HFE letter from <b>${fmtD(p.clear)}</b>.`,"fam");
+    else ok(`No private residential property owned or sold in the last 30 months.`,"fam");
+  }
+  const mopEnds = s.mopEnd ? ` Your MOP ends on <b>${fmtD(s.mopEnd)}</b>.` : "";
+  function curHome(when){
+    if (s.home==="hdbPre") no(`You're still in the minimum occupation period (MOP) of your current flat.${mopEnds} Until it ends, you and other core members can't apply for an HFE letter, buy another HDB flat or buy an EC.`,"after");
+    else if (s.home==="ecPre") no(`You're still in your EC's minimum occupation period.${mopEnds} Core occupiers can't apply to buy an HDB flat or another EC during the MOP.`,"ecafter");
+    else if (s.home==="hdbPost") warn(`You must sell your current HDB flat within 6 months of ${when} (based on the sale's legal completion date).`,"after");
+  }
+  // A household has a citizen if you are one, or your fiancé(e)/spouse/parent is
+  const hasSC = s.cit==="SC" || (s.hh==="family" && s.partner==="SC");
+  const mixedSCPR = (s.cit==="SC" && s.hh==="family" && s.partner==="SPR") || (s.cit==="SPR" && s.hh==="family" && s.partner==="SC");
+  const bothSC = s.cit==="SC" && s.hh==="family" && s.partner==="SC";
+  const forNote = s.cit==="FOR" && s.hh==="family" && s.partner==="SC" ? " If your spouse is a Singapore Citizen, run the checker from their side and choose “Non-resident spouse”." : "";
+  if (BUY.includes(s.goal)){
+    if (s.noAcq) warn(`Enter the date you acquired your ${s.homeRaw==="hdb" ? "HDB flat" : "EC"} so the minimum occupation period can be checked. Until then, it's assumed to have ended.`, s.homeRaw==="hdb" ? "sell" : "ecafter");
+    else if (s.mopEnd && s.mopEnd <= TODAY) ok(`Your ${s.homeRaw==="hdb" ? "flat" : "EC"}'s minimum occupation period ended on ${fmtD(s.mopEnd)}, assuming you lived there throughout.`, s.homeRaw==="hdb" ? "sell" : "ecafter");
+    const ssdNow = s.homeRaw==="private" && s.goal!=="private" ? ssdToday(s.bdate) : null;
+    if (ssdNow) info(`If you sell your private home now to meet HDB's rules, Seller's Stamp Duty of <b>${ssdNow.pct}%</b> applies. There's none from ${fmtD(ssdNow.end)}.`,"ssd");
+  }
+  const cls = {resalePlus:"Plus",resalePrime:"Prime"}[s.goal];
+
+  if (s.goal==="bto"){
+    if (s.cit==="FOR") no(`Foreigners can't buy HDB flats.${forNote}`, "fam");
+    else if (!hasSC) no(`A new flat from HDB needs a Singapore Citizen in the household. A household made up only of PRs can buy a resale flat once every PR buyer has held PR for 3 years.`, "fam");
+    if (s.hh==="family"){
+      ok(`Household: you with a fiancé(e), spouse, children or parents, including at least one other SC or SPR. You can apply for flats up to 5-room.`,"fam");
+      if (mixedSCPR && s.sub===0) warn(`SC + SPR first-timer household: you pay a $10,000 premium at purchase. You can claim a $10,000 Citizen Top-Up later, when the PR becomes a citizen or you have a Singapore Citizen child.`,"fam");
+    } else if (s.hh==="nonres") info(`With a non-resident spouse, you can apply for a 2-room Flexi flat only. Your spouse must hold a valid Visit Pass or Work Pass when you apply.`,"fam");
+    else info(`Singles${s.hh==="joint"?" (all must be citizens)":""} can apply for a 2-room Flexi flat only.`,"sing");
+    const minAge = s.hh==="family" ? 21 : 35;
+    s.age < minAge ? no(`You must be at least ${minAge} years old.`, s.hh==="family"?"fam":"sing") : ok(`Age ${s.age} meets the minimum age of ${minAge}.`, s.hh==="family"?"fam":"sing");
+    const ceil = s.hh==="family" ? (s.ext?24000:16000) : 8000;
+    s.inc > ceil ? no(`Household income of ${m(s.inc)} is above the ${m(ceil)} ceiling.`,"inc26")
+      : ok(`Household income of ${m(s.inc)} is within the ${m(ceil)} ceiling${s.hh==="family"?". Note: 2-room Flexi flats and some 3-room projects cap income at $8,000":""}.`,"inc26");
+    propWait("a new flat");
+    curHome("collecting keys to the new flat");
+    if (s.sub>=2) no(`You or a core member have taken 2 housing subsidies, so you can't buy a new flat.${s.age>=55?" Seniors may still qualify for a short-lease flat (see below).":""}`,"fam");
+    else if (s.sub===1){ singleish && s.hh!=="nonres" ? no(`Singles who have taken a housing subsidy are second-timers and can't take another subsidised flat.`,"sing") : warn(`As second-timers, you pay a resale levy when you book (e.g. $30,000 if your first subsidised flat was a 3-room, $40,000 if it was a 4-room).`,"after"); }
+    else ok(`First-timer household: no housing subsidy taken before.`,"fam");
+    if (s.hh==="single" || s.hh==="widowed" || s.hh==="joint") info(`Singles pay an extra $15,000, which is built into the flat price.`,"sing");
+    if (s.age>=55) info(`At 55 or older, you can also buy a short-lease 2-room Flexi flat or Community Care Apartment (lease of 15–45 years that must last you to age 95). The income ceiling is $16,000, and you can own private property if you sell it within 6 months of completing the purchase.`,"sen");
+    if (s.sub<=1 && p.k==="clear" && hasSC){
+      if (s.hh==="family"){
+        if (s.sub===0) s.inc<=9000 ? grant("Enhanced CPF Housing Grant (Families)",120000,"Graded by average income over the past 12 months; lower income gets more. You must have worked continuously for 12 months.","ehg",true) : R.grantNote=`Enhanced CPF Housing Grant needs household income of $9,000 or less.`;
+        else s.inc/2<=4500 ? grant("Enhanced CPF Housing Grant (Singles), first-timer + second-timer couple",60000,"Half of household income must be $4,500 or less.","ehg",true) : R.grantNote=`Enhanced grant needs half of household income to be $4,500 or less.`;
+      } else if (s.sub===0){
+        const lim = s.hh==="single"||s.hh==="widowed" ? 4500 : 9000;
+        s.inc<=lim ? grant(`Enhanced CPF Housing Grant (Singles)${s.hh==="joint"?", up to 2 singles":""}`, s.hh==="joint"?120000:60000, `Income ceiling ${m(lim)}; needs 12 months' continuous work.`,"sehg",true) : R.grantNote=`Enhanced grant for singles needs income of ${m(lim)} or less.`;
+      }
+    }
+    aft(`MOP: 5 years for Standard flats, 10 years for Plus and Prime. You can't sell, rent out the whole flat or buy private property until it ends.`,"after");
+    aft(`Plus and Prime flats: you can never rent out the whole flat, and you return a share of the resale price to HDB (subsidy recovery) when you sell.`,"after");
+    aft(`Start with an HFE letter. For the November 2026 BTO exercise, HDB asks for all documents by 25 Sep 2026.`,"inc26");
+  }
+
+  else if (["resaleStd","resalePlus","resalePrime"].includes(s.goal)){
+    const std = s.goal==="resaleStd";
+    if (s.cit==="FOR") no(`Foreigners can't buy HDB flats.${forNote}`,"fam");
+    const sprHousehold = s.cit==="SPR" && (s.hh!=="family" || s.partner==="SPR");
+    if (std){
+      if (s.cit==="SPR"){
+        if (s.hh!=="family") no(`PRs can buy a resale flat only as a family (with a spouse, children or parents). Singles schemes and the non-resident spouse scheme require Singapore citizenship.`,"sing");
+        else if (s.partner==="SPR"){
+          s.spr3 ? ok(`PR household: every applicant and core occupier has held PR for at least 3 years.`,"fam") : no(`PR household: every applicant and core occupier must have held PR status for at least 3 years.`,"fam");
+          info(`Non-Malaysian PR households must also fit the PR quota (8% of the block, 5% of the neighbourhood), in addition to the Ethnic Integration Policy.`,"sell");
+        } else ok(`PR buying with a Singapore Citizen family member: eligible household.`,"fam");
+      } else if (s.cit==="SC") ok(`Singapore Citizen applicant.`, singleish?"sing":"fam");
+    } else {
+      if (s.cit!=="FOR") !hasSC ? no(`Resale ${cls} flats follow new-flat rules, so the household needs a Singapore Citizen.`,"fam") : ok(`Singapore Citizen in the household.`,"fam");
+      if (mixedSCPR && s.sub===0) info(`SC + SPR households: the premium and Citizen Top-Up rules for new flats also apply to resale ${cls} flats.`,"fam");
+    }
+    let minAge = (s.hh==="family"||s.hh==="widowed") ? 21 : s.hh==="nonres" ? (s.goal==="resalePrime"?35:21) : 35;
+    s.age < minAge ? no(`You must be at least ${minAge} years old${s.hh==="single"||s.hh==="joint"?" as an unmarried or divorced single":""}.`, singleish?"sing":"fam") : ok(`Age ${s.age} meets the minimum age of ${minAge}.`, singleish?"sing":"fam");
+    if (s.hh==="nonres" && s.goal!=="resalePrime") info(s.age<35 ? `Under 35: your spouse needs a Long-Term Visit Pass or Work Pass valid for at least 6 months from issue.` : `35 or older: your spouse needs a valid Visit Pass or Work Pass of any validity.`,"fam");
+    if (s.goal==="resalePrime" && singleish) info(`Singles and households with a non-resident spouse can buy only 2-room resale Prime flats.`,"sing");
+    if (s.hh==="joint") info(`All co-applicant singles must be Singapore Citizens.`,"sing");
+
+    if (std){
+      ok(`No income ceiling to buy a Standard or unclassified resale flat. Income ceilings apply only to CPF grants (except the Proximity Housing Grant) and HDB loans.`,"fam");
+      if (s.assist){
+        const c = s.hh==="family" ? (s.ext?24000:16000) : 8000;
+        if (s.inc > c) warn(`Income of ${m(s.inc)} is above the ${m(c)} ceiling for ${s.hh==="family"?"CPF grants and an HDB loan":"an HDB loan for singles"}. You can still buy with a bank loan.`,"loan");
+      }
+    } else {
+      const c = s.hh==="family" ? (s.ext?24000:16000) : (s.goal==="resalePlus"?16000:8000);
+      s.inc > c ? no(`Household income of ${m(s.inc)} is above the ${m(c)} ceiling for resale ${cls} flats.`,"fam") : ok(`Household income of ${m(s.inc)} is within the ${m(c)} ceiling.`,"fam");
+    }
+
+    if (!std || s.assist) propWait(std ? "CPF grants or an HDB loan" : `a resale ${cls} flat`);
+    else {
+      if (p.k==="own") warn(`You can buy while owning private property (the wait-out was removed on 28 Jul 2026). You must sell it, whether in Singapore or overseas, within 6 months of completing the flat purchase.`,"wait26");
+      else if (p.k==="recent") ok(`Recent private property sale doesn't block you: since 28 Jul 2026, there's no wait-out for resale flats bought without grants or an HDB loan.`,"wait26");
+      else ok(`No private property to dispose of.`,"fam");
+    }
+    curHome("completing the resale purchase");
+
+    if (s.goal==="resalePrime" && ((singleish && s.sub>=1) || s.sub>=2)) no(singleish ? `Only first-timer singles can buy resale Prime flats.` : `Households where a core member has taken 2 housing subsidies can't buy resale Prime flats.`, singleish?"sing":"fam");
+    else ok(`Previous housing subsidies don't stop you from buying this resale flat, though they affect your grants.`,"fam");
+
+    // Grants
+    const grantBlock = !hasSC || p.k!=="clear" || s.home==="hdbPre" || s.home==="ecPre";
+    const big = s.size==="5plus";
+    if (s.cit==="SPR" && sprHousehold) R.grantNote = "CPF housing grants for resale flats need a Singapore Citizen applicant.";
+    else if (!std || s.assist){
+      if (!grantBlock){
+        if (s.hh==="family"){
+          const c = s.ext?24000:16000;
+          if (s.inc<=c && s.sub===0) grant(`CPF Housing Grant (Families) — ${bothSC?"SC/SC":"SC/SPR"}, ${big?"5-room+":"2–4 room"}`, bothSC?(big?50000:80000):(big?40000:70000), "First-timers; flat lease must be more than 20 years.","cpfg");
+          else if (s.inc<=c && s.sub===1) grant(`CPF Housing Grant — first-timer + second-timer couple, ${big?"5-room+":"2–4 room"}`, big?25000:40000, "Remaining lease more than 20 years.","cpfg");
+          else if (s.inc>c) R.grantNote = `CPF Housing Grant needs household income of ${m(c)} or less.`;
+          if (s.sub===0 && s.inc<=9000) grant("Enhanced CPF Housing Grant (Families)",120000,"Graded by income. Full amount only if the lease covers the youngest buyer to age 95. Needs 12 months' continuous work.","ehg",true);
+          else if (s.sub===1 && s.inc/2<=4500) grant("Enhanced CPF Housing Grant (Singles), first-timer + second-timer couple",60000,"Half of household income must be $4,500 or less.","ehg",true);
+        } else if (s.sub===0){
+          const n = s.hh==="joint" ? 2 : 1;
+          grant(`Singles Grant${n>1?" × 2 singles":""} — ${big?"5-room+":"2–4 room"}`, (big?25000:40000)*n, "First-timer Singapore Citizens; income ceilings apply (your HFE letter confirms).","singg");
+          const lim = (s.hh==="single"||s.hh==="widowed") ? 4500 : 9000;
+          if (s.inc<=lim) grant(`Enhanced CPF Housing Grant (Singles)${n>1?", up to 2 singles":""}`, 60000*n, `Income ceiling ${m(lim)}; 12 months' continuous work.`,"sehg",true);
+        }
+      }
+      if (s.prox!=="none" && hasSC){
+        if (s.hh==="family") grant(`Proximity Housing Grant — ${s.prox==="with"?"live with":"live within 4 km of"} parents/child`, s.prox==="with"?30000:20000, "No income ceiling; for households that haven't taken it before. The proximity arrangement must continue through the MOP.","phg");
+        else R.grantNote = (R.grantNote?R.grantNote+" ":"") + "Singles 35+ living with parents may get the Proximity Housing Grant (Singles) — see HDB for the amount.";
+      }
+    } else if (s.prox!=="none" && hasSC && s.hh==="family"){
+      grant(`Proximity Housing Grant — ${s.prox==="with"?"live with":"live within 4 km of"} parents/child`, s.prox==="with"?30000:20000, "Allowed even when buying without other grants or an HDB loan.","phg");
+    }
+    aft(`MOP: ${std?"5 years":"10 years"} from legal completion. You can't sell, rent out the whole flat${std?"":" (never allowed for "+cls+" flats)"}, or buy private property before it ends.`,"sell");
+    aft(`HDB loan: up to 75% of the lower of price or valuation. CPF use: up to the lower of price or valuation, more toward the HDB loan once your Basic Retirement Sum is set aside.`,"loan");
+    if (!std) aft(`Resale ${cls} flats follow new-flat eligibility rules, including the 30-month private property wait-out.`,"fam");
+  }
+
+  else if (s.goal==="ec"){
+    if (s.cit==="FOR" || !hasSC) no(`An EC needs a Singapore Citizen applicant, and the household must include at least one other SC or SPR.${forNote}`,"ec");
+    if (s.hh==="single"||s.hh==="widowed") no(`Singles can't buy an EC alone. Two to four Singapore Citizen singles aged 35+ can apply together.`,"ec");
+    else if (s.hh==="nonres") no(`A household with a non-resident spouse isn't an eligible group for ECs.`,"ec");
+    else if (s.hh==="joint") s.age<35 ? no(`Singles applying jointly must be at least 35.`,"ec") : ok(`Joint singles, all citizens aged 35 or older.`,"ec");
+    else { s.age<21 ? no(`You must be at least 21.`,"ec") : ok(`Family household with at least one other SC or SPR; age ${s.age} meets the minimum of 21.`,"ec"); }
+    if (s.inc>18000) no(`Household income of ${m(s.inc)} is above the $18,000 EC ceiling.`,"ec");
+    else if (s.inc>16000) warn(`Income between $16,000 and $18,000 qualifies only for new EC projects whose land tender closed on or after 24 Aug 2026. Older sites cap income at $16,000.`,"ec");
+    else ok(`Household income of ${m(s.inc)} is within the EC ceiling ($16,000 or $18,000, depending on the site).`,"ec");
+    if (s.home==="ecPost") no(`You own an EC. You must sell it and wait 30 months before buying another EC from a developer.`,"ec");
+    else propWait("an EC");
+    curHome("collecting keys to the EC");
+    if (s.sub>=2) no(`Core members who have taken 2 housing subsidies can't buy an EC.`,"ec");
+    else if (s.sub===1) warn(`Second-timers pay a resale levy when buying an EC.`,"ec");
+    else ok(`First-timer household.`,"ec");
+    info(`If you cancel an HDB flat booking, you must wait 1 year before applying for an EC. A CPF Housing Grant for ECs is available to eligible households.`,"ec");
+    aft(`MOP: 10 years from TOP for EC projects whose land tender closed on or after 8 May 2026 (5 years for others). You can buy private property only after the MOP.`,"ecafter");
+    aft(`You can rent out rooms during the MOP (register with HDB within 7 days). You can rent out the whole unit only after the MOP.`,"ecafter");
+    aft(`If you later buy a subsidised flat or another new EC, you pay a resale levy of $55,000 (families) or $27,500 (singles).`,"ecafter");
+  }
+
+  else if (s.goal==="private"){
+    if (s.home==="hdbPre" || s.home==="ecPre") no(`URA: HDB, DBSS and EC owners must finish the minimum occupation period before buying private residential property.${mopEnds}`,"ura");
+    else if (s.home==="hdbPost"){
+      const allSpr = s.cit==="SPR" && (s.hh!=="family" || s.partner==="SPR");
+      allSpr ? warn(`All flat owners are PRs: you must tell HDB, and sell the HDB flat within 6 months of acquiring the private property.`,"after")
+             : warn(`After MOP, citizen households can keep their flat and buy private property, but must keep living in the flat unless HDB approves renting it out.`,"after");
+    } else ok(`Nothing in your current ownership stops you from buying private property.`,"ura");
+    if (s.cit!=="SC") warn(`Non-citizens need approval from the Singapore Land Authority's Controller of Residential Property to buy landed homes, including strata landed houses.`,"ura");
+    else ok(`Citizens don't need Singapore Land Authority approval to buy landed homes.`,"ura");
+    info(`Stamp duty: Buyer's Stamp Duty is due after signing. Additional Buyer's Stamp Duty may apply depending on whether you buy as an individual or entity, your residency status and how many homes you own. IRAS publishes the rates.`,"ura");
+    s.cit==="FOR" ? info(`Foreigners have no CPF, so budget for cash and a bank loan.`,"ura")
+      : info(`CPF: use your Ordinary Account under the Private Properties Scheme, up to the lower of price or valuation. With a bank loan, you can use up to 120% of that once your Basic Retirement Sum is set aside. For full use, the lease must cover the youngest CPF user to age 95.`,"cpfuse");
+    info(`Buying from a developer: pay a booking fee for an Option to Purchase, then exercise it within 3 weeks of receiving the Sale and Purchase Agreement, or the developer may keep 25% of the fee.`,"ura");
+    R.afterTitle = "Knock-on effects";
+    if (s.cit!=="FOR") aft(`While you own private property, you can't buy a new HDB flat, resale Plus/Prime flat or EC, or take grants or an HDB loan. After you sell, those need a 30-month wait. A Standard resale flat without an HDB loan is still possible if you sell within 6 months.`,"fam");
+    aft(`Selling within 4 years of buying (for homes bought from 4 Jul 2025) means paying Seller's Stamp Duty of 16% down to 4%.`,"ssd");
+  }
+
+  else if (s.goal==="sellHdb"){
+    R.afterTitle = "What happens when you sell";
+    const yrs = {std:5,plus:10,dbss:5,fresh:20}[s.fclass];
+    if (!s.bdate) info(`Enter the purchase completion date to work out your MOP.`,"sell");
+    else { const d = addMonths(s.bdate, yrs*12);
+      d > TODAY ? no(`MOP not met. Your ${yrs}-year MOP ends <b>${fmtD(d)}</b> at the earliest, or later if there were periods you didn't live in the flat (e.g. approved whole-flat rental).`,"sell")
+                : ok(`MOP met: your ${yrs}-year MOP ended on ${fmtD(d)}, assuming you lived in the flat throughout.`,"sell"); }
+    warn(`The sale must fit the Ethnic Integration Policy quota for your block and neighbourhood, plus the PR quota if a non-Malaysian PR household buys. Register an Intent to Sell in My Flat Dashboard to see the quota.`,"sell");
+    if (s.fclass==="plus") info(`Plus/Prime flats bought from HDB: you return a percentage of the resale price or valuation, whichever is higher, to HDB (subsidy recovery).`,"after");
+    info(`Owners going through a divorce before MOP should write to HDB. If no owner is a Singapore Citizen and one is bankrupt, the Official Assignee must consent.`,"sell");
+    aft(`CPF refund: the sale proceeds first repay the loan, then refund the CPF you used plus accrued interest. ${s.age<55?"At your age, the refund goes back to your Ordinary Account.":"At 55+, the refund first tops up your Retirement Account to the Full Retirement Sum, and the rest stays in your Ordinary Account."}`,"cpfref");
+    aft(`If you sell at market value and the price doesn't cover the loan and CPF refund, you don't need to top up the shortfall in cash.`,"cpfref");
+    aft(`Resale levy is only payable if your next home is another subsidised flat or a new EC (e.g. $40,000 for a family that sold a 4-room). There's no levy for a resale flat without grants or a private home.`,"after");
+  }
+
+  else if (s.goal==="sellEc"){
+    R.afterTitle = "What happens when you sell";
+    const yrs = s.ectender==="after" ? 10 : 5;
+    if (!s.bdate) info(`Enter the EC's TOP date to work out the MOP.`,"ecafter");
+    else { const d = addMonths(s.bdate, yrs*12);
+      d > TODAY ? no(`MOP not met. You can sell on the open market from <b>${fmtD(d)}</b> (${yrs} years from TOP).`,"ecafter") : ok(`MOP met on ${fmtD(d)} (${yrs} years from TOP).`,"ecafter"); }
+    info(`Once the MOP is over, the EC is treated as private residential property under HDB rules.`,"fam");
+    aft(`CPF refund of the amount used plus accrued interest ${s.age<55?"goes to your Ordinary Account.":"first tops up your Retirement Account to the Full Retirement Sum."}`,"cpfref");
+    aft(`Next home: a new HDB flat, grants, an HDB loan or another new EC need a 30-month wait after the EC sale completes, plus a $55,000 resale levy (singles $27,500) for a subsidised flat or new EC.`,"ecafter");
+    aft(`A resale flat without grants or an HDB loan needs no wait (as of 28 Jul 2026).`,"wait26");
+  }
+
+  else if (s.goal==="sellPrivate"){
+    R.afterTitle = "What happens when you sell";
+    if (!s.bdate) info(`Enter your purchase date to check the Seller's Stamp Duty period.`,"ssd");
+    else {
+      const b = s.bdate;
+      const sched = b >= new Date(2025,6,4) ? [16,12,8,4] : b >= new Date(2017,2,11) ? [12,8,4] : b >= new Date(2011,0,14) ? [16,12,8,4] : null;
+      if (!sched) ok(`Homes bought before 14 Jan 2011 are past any Seller's Stamp Duty holding period.`,"ssd");
+      else {
+        const end = addMonths(b, sched.length*12);
+        if (end > TODAY){
+          let yr = 0; while (addMonths(b,(yr+1)*12) < TODAY) yr++;
+          warn(`Selling now means paying Seller's Stamp Duty of <b>${sched[yr]}%</b> of the price or market value, whichever is higher. The rate steps down each year, and there's no Seller's Stamp Duty from <b>${fmtD(end)}</b>. The holding period counts from your Option to Purchase acceptance or S&amp;P Agreement date.`,"ssd");
+        } else ok(`You're past the ${sched.length}-year Seller's Stamp Duty holding period, which ended ${fmtD(end)}.`,"ssd");
+      }
+    }
+    ok(`HDB, CPF and URA rules set no minimum occupation period for a privately bought home.`,"ura");
+    aft(`CPF refund of principal plus accrued interest ${s.age<55?"goes back to your Ordinary Account.":"first tops up your Retirement Account to the Full Retirement Sum."}`,"cpfref");
+    aft(`If the sale completes today, you could apply to buy a new HDB flat, get grants or an HDB loan, or buy an EC from <b>${fmtD(addMonths(TODAY,30))}</b> (30 months later).`,"fam");
+    aft(`A resale flat without grants or an HDB loan needs no wait. You can even buy it before selling, as long as the private sale completes within 6 months.`,"wait26");
+  }
+  return R;
+}
+
+const GLYPH = {ok:"✓",warn:"!",no:"✕",info:"i"};
+function li(c){ return `<li><span class="mark ${c.kind}" aria-label="${c.kind}">${GLYPH[c.kind]}</span><div>${c.text}${srcLink(c.src)}</div></li>`; }
+
+function render(){
+  const s = state(); updateVis(s);
+  const R = evaluate(s);
+  const n = k => R.checks.filter(c=>c.kind===k).length;
+  const v = n("no") ? "no" : n("warn") ? "cond" : "yes";
+  const sell = s.goal.startsWith("sell");
+  const labels = { bto:"a new HDB flat", resaleStd:"a Standard resale flat", resalePlus:"a resale Plus flat", resalePrime:"a resale Prime flat", ec:"a new EC", private:"private property", sellHdb:"your HDB flat", sellEc:"your EC", sellPrivate:"your private property" };
+  const pill = $("pill"); pill.className = "pill " + v;
+  pill.textContent = sell ? {yes:"Can sell",cond:"Can sell · conditions",no:"Not yet"}[v] : {yes:"Eligible",cond:"Eligible · conditions",no:"Not eligible"}[v];
+  $("headline").innerHTML = sell
+    ? {yes:`You can sell ${labels[s.goal]}.`, cond:`You can sell ${labels[s.goal]}, but check the conditions below.`, no:`You can't sell ${labels[s.goal]} yet.`}[v]
+    : {yes:`You look eligible to buy ${labels[s.goal]}.`, cond:`You can buy ${labels[s.goal]}, with conditions.`, no:`You can't buy ${labels[s.goal]} yet.`}[v];
+  $("tally").textContent = `${n("ok")} met · ${n("warn")} conditions · ${n("no")} blocking`;
+  $("checks").innerHTML = R.checks.map(li).join("");
+  const showGrants = ["bto","resaleStd","resalePlus","resalePrime"].includes(s.goal);
+  $("grants-wrap").hidden = !showGrants;
+  if (showGrants){
+    if (R.grants.length){
+      const total = R.grants.reduce((a,g)=>a+g.amt,0), anyUp = R.grants.some(g=>g.upTo);
+      $("grants").innerHTML = `<table>${R.grants.map(g=>`<tr><td>${g.name}${srcLink(g.src)}<span class="note">${g.note}</span></td><td class="amt">${g.upTo?"up to ":""}${m(g.amt)}</td></tr>`).join("")}
+        ${R.grants.length>1?`<tr class="total"><td>Total</td><td class="amt">${anyUp?"up to ":""}${m(total)}</td></tr>`:""}</table>${R.grantNote?`<p class="muted" style="font-size:13.5px;margin:4px 0 10px">${R.grantNote}</p>`:""}`;
+    } else {
+      $("grants").innerHTML = `<p class="muted" style="margin:10px 0">${R.grantNote || (s.goal==="resaleStd" && !s.assist ? "Tick “I want CPF housing grants or an HDB housing loan” to check grants." : "No grants apply to this profile.")}</p>`;
+    }
+  }
+  $("after-h").textContent = R.afterTitle;
+  $("after-wrap").hidden = !R.after.length;
+  $("after").innerHTML = R.after.map(li).join("");
+}
+
+const DEFAULTS = {cit:"SC",age:"32",hh:"family",partner:"SC",inc:"11000",sub:"0",home:"none",past:"never",pdate:"",size:"2to4",prox:"near",fclass:"std",ectender:"before",bdate:"2022-03-15"};
+function resetExample(){
+  Object.entries(DEFAULTS).forEach(([k,v])=>{$(k).value=v}); formatAllMoney();
+  $("ext").checked=false; $("spr3").checked=false; $("assist").checked=true; $("g-rs").checked=true; render();
+}
+$("reset").addEventListener("click", resetExample);
+$("form").addEventListener("input", render);
+$("form").addEventListener("change", render);
+
+/* ---------- Loan calculator ---------- */
+const L = id => document.getElementById("l-"+id);
+const pmt = (P, r, y) => { const n=y*12, i=r/1200; if (P<=0 || n<=0) return 0; return i===0 ? P/n : P*i/(1-Math.pow(1+i,-n)); };
+const pvOf = (A, r, y) => { const n=y*12, i=r/1200; if (A<=0 || n<=0) return 0; return i===0 ? A*n : A*(1-Math.pow(1+i,-n))/i; };
+function bsdOf(v){
+  const tiers=[[180000,1],[180000,2],[640000,3],[500000,4],[1500000,5],[Infinity,6]];
+  let rest=v, d=0;
+  for (const [band,r] of tiers){ const x=Math.min(rest,band); d+=x*r/100; rest-=x; if (rest<=0) break; }
+  return Math.floor(d);
+}
+const ABSD = {SC:[0,20,30], SPR:[5,30,35]};
+const TYPE_LABEL = {hdbNew:"a new HDB flat", hdbResale:"an HDB resale flat", ecNew:"a new EC", privResale:"this private home", privNew:"this new-launch private home"};
+let lastLender = null;
+
+function lstate(){
+  const num = id => { const v = L(id).value.replace(/[^\d.]/g,""); return v==="" ? null : +v; };
+  return { type:L("type").value, price:num("price")||0, val:num("val"), lender:L("lender").value, lease:num("lease")||99,
+    grants:num("grants")||0, prof:L("prof").value, hh:L("hh").value, fta:L("fta").checked, owned:L("owned").value,
+    couple:L("couple").checked, hl:+L("hl").value,
+    age:num("age")||0, fixed:num("fixed")||0, vari:num("var")||0, pdebt:num("pdebt")||0, odebt:num("odebt")||0,
+    rate:num("rate")??0, tenure:num("tenure")||1, want:num("want"), cpf:num("cpf")||0, legal:num("legal")||0, other:num("other")||0,
+    av:num("av")||0, occ:L("occ").value, small:L("small").checked };
+}
+
+// Eligibility for the purchase and for the chosen loan. Returns lists of {kind,text,src}.
+function loanEligibility(s, f){
+  const buy = [], loanBlk = [], grantMsg = [];
+  const B = (kind,text,src) => buy.push({kind,text,src});
+  const {isHdb, isEc, isPriv, hdbLoan, hasSC, hasFor, prOnly, forOnly, ownsPriv, ownsHdb, hhInc} = f;
+  const single = s.hh==="single";
+
+  if (isHdb || isEc){
+    // Citizenship
+    if (forOnly) B("no", `Foreigners can't buy ${isHdb ? "HDB flats" : "ECs from developers"}.`, isHdb ? "fam" : "ec");
+    else if (prOnly){
+      if (s.type==="hdbNew") B("no", `New HDB flats need a Singapore Citizen buyer. Households made up only of PRs can buy resale flats instead.`, "fam");
+      else if (isEc) B("no", `ECs need a Singapore Citizen applicant.`, "ec");
+      else if (single) B("no", `PRs can't buy HDB flats as singles; the singles schemes require Singapore citizenship.`, "sing");
+      else B("warn", `PR household: every buyer and core occupier must have held PR for at least 3 years. Non-Malaysian PR households must also fit the block and neighbourhood PR quota.`, "fam");
+    }
+    else if (single && s.prof!=="SC") B("no", `Singles buying ${isEc ? "an EC" : "an HDB flat"} together must all be Singapore Citizens.`, isEc ? "ec" : "sing");
+    else if (s.prof==="SCFOR"){
+      if (isEc) B("no", `A household with a non-resident spouse isn't an eligible group for ECs.`, "ec");
+      else if (s.type==="hdbNew") B("warn", `With a non-resident spouse, the citizen can buy only a 2-room Flexi flat, and the spouse is listed as an occupier with a valid Visit Pass or Work Pass.`, "fam");
+      else B("warn", `With a non-resident spouse, the citizen buys the flat and the spouse is listed as an occupier. Under 35, the spouse needs a Long-Term Visit Pass or Work Pass valid for at least 6 months.`, "fam");
+    }
+    else if (s.prof==="SCPR" && !isEc) B("info", `Citizen + PR first-timer households pay a $10,000 premium when buying a new flat, or a resale Plus or Prime flat. A $10,000 Citizen Top-Up can be claimed later.`, "fam");
+    else B("ok", `Household includes a Singapore Citizen.`, isEc ? "ec" : "fam");
+
+    // Age
+    const nonres = s.prof==="SCFOR";
+    const minAge = (single || isEc && single) ? 35 : (s.type==="hdbNew" && nonres) ? 35 : 21;
+    if (!forOnly && !(prOnly && s.type!=="hdbResale")){
+      if (s.age < minAge) B("no", `Buyers must be at least ${minAge}${single && s.type==="hdbResale" ? " (widowed or orphaned singles can buy resale from 21)" : ""}.`, isEc ? "ec" : single ? "sing" : "fam");
+      if (single && isEc) B("warn", `Singles can buy an EC only as 2 to 4 citizens aged 35 or older applying together.`, "ec");
+      if (single && s.type==="hdbNew") B("warn", `Singles can buy only a 2-room Flexi flat from HDB, and pay an extra $15,000 built into the price.`, "sing");
+    }
+
+    // Income ceilings to buy (resale flats have none)
+    if (s.type==="hdbNew" && !forOnly && !prOnly){
+      if (single || nonres){ if (hhInc > 8000) B("no", `Household income of ${m(hhInc)} is above the $8,000 ceiling for 2-room Flexi flats.`, "inc26"); }
+      else if (hhInc > 24000) B("no", `Household income of ${m(hhInc)} is above the $16,000 ceiling for families ($24,000 with extended or multi-generation families).`, "inc26");
+      else if (hhInc > 16000) B("warn", `Household income of ${m(hhInc)} is above the $16,000 family ceiling. It's allowed only when buying with extended or multi-generation family (up to $24,000).`, "inc26");
+      else B("ok", `Household income of ${m(hhInc)} is within the new-flat ceiling.`, "inc26");
+    }
+    if (isEc && !forOnly && !prOnly){
+      if (hhInc > 18000) B("no", `Household income of ${m(hhInc)} is above the $18,000 EC ceiling.`, "ec");
+      else if (hhInc > 16000) B("warn", `Income between $16,000 and $18,000 qualifies only for EC projects whose land tender closed on or after 24 Aug 2026.`, "ec");
+      else B("ok", `Household income of ${m(hhInc)} is within the EC ceiling.`, "ec");
+    }
+
+    // Property owned
+    if (ownsPriv){
+      if (s.type==="hdbResale" && !hdbLoan) B("warn", `You can buy a resale flat while owning private property if you don't take an HDB loan or CPF grants. You must sell all private property within 6 months of completing the purchase.`, "wait26");
+      else if (s.type!=="hdbResale") B("no", `Owners of private homes or ECs can't buy ${TYPE_LABEL[s.type]}. You must sell and wait 30 months first.`, isEc ? "ec" : "fam");
+    }
+    if (ownsHdb || s.owned==="2" && isHdb) B("warn", `Your HDB flat must have finished its minimum occupation period (MOP), and you must sell it within 6 months of ${s.type==="hdbResale" ? "completing the purchase" : "collecting the keys"}. Second-timers pay a resale levy for a new flat or EC.`, "after");
+    if (s.owned==="0") B("ok", `No other property to sell.`, "fam");
+  }
+
+  if (isPriv){
+    B("ok", `Singapore Citizens, PRs and foreigners can all buy non-landed private homes.`, "ura");
+    if (s.prof!=="SC") B("warn", `Non-citizens need approval from the Singapore Land Authority to buy landed homes, including strata landed houses.`, "ura");
+    if (ownsHdb || s.owned==="2") B("warn", prOnly
+      ? `PR-only HDB owners can buy private property only after the flat's MOP, and must sell the flat within 6 months of buying.`
+      : `HDB owners can buy private property only after the flat's MOP. Citizen households can keep the flat but must keep living in it unless HDB approves renting it out.`, prOnly ? "after" : "ura");
+  }
+
+  // HDB loan
+  if (hdbLoan && !buy.some(b => b.kind==="no")){
+    if (!hasSC) loanBlk.push({kind:"no", text:`HDB loans need at least one Singapore Citizen buyer.`, src:"loan"});
+    if (ownsPriv) loanBlk.push({kind:"no", text:`You can't take an HDB loan while owning private property, or within 30 months of selling it.`, src:"loan"});
+    if (single || s.prof==="SCFOR" && s.type==="hdbNew"){ if (hhInc > 8000) loanBlk.push({kind:"no", text:`Household income of ${m(hhInc)} is above the $8,000 HDB loan ceiling for singles.`, src:"loan"}); }
+    else if (hhInc > 24000) loanBlk.push({kind:"no", text:`Household income of ${m(hhInc)} is above the HDB loan ceiling ($16,000 for families, $24,000 for extended families).`, src:"loan"});
+    else if (hhInc > 16000) buy.push({kind:"warn", text:`Income above $16,000 qualifies for an HDB loan only for extended or multi-generation families (up to $24,000).`, src:"loan"});
+  }
+
+  // Grants
+  if ((isHdb || isEc) && s.grants > 0){
+    if (!hasSC) grantMsg.push(`CPF housing grants need a Singapore Citizen buyer.`);
+    else if (ownsPriv) grantMsg.push(`CPF housing grants aren't available while you own private property, or within 30 months of selling it.`);
+  }
+  return {buy, loanBlk, grantMsg};
+}
+
+function calcLoan(){
+  const s = lstate();
+  const isHdb = s.type.startsWith("hdb"), isEc = s.type==="ecNew", isPriv = s.type.startsWith("priv");
+  const isResale = s.type==="hdbResale" || s.type==="privResale";
+  const hdbLoan = isHdb && s.lender==="hdb";
+  const hasSC = s.prof.startsWith("SC"), hasFor = s.prof==="SCFOR" || s.prof==="FOR";
+  const prOnly = s.prof==="PR", forOnly = s.prof==="FOR";
+  const ownsPriv = s.owned==="priv" || s.owned==="2", ownsHdb = s.owned==="hdb";
+  const nHomes = {"0":0, hdb:1, priv:1, "2":2}[s.owned];
+  const hhInc = s.fixed + s.vari;
+
+  const coupleShown = isPriv && hasSC && s.hh==="family" && ((nHomes===0 && s.prof!=="SC") || nHomes===1);
+  const vis = {resale:isResale, hdb:isHdb, lease:isHdb, grants:isHdb||isEc, couple:coupleShown, fta:isPriv && hasFor, hdbsmall:isHdb && s.occ==="oo"};
+  document.querySelectorAll("#lform [data-l]").forEach(el => { el.hidden = !vis[el.dataset.l]; });
+  L("couple-t").textContent = nHomes===1 ? "We're a married couple buying in both our names only, and will sell our first home within 6 months" : "We're a married couple buying in both our names only";
+  const lenderKey = hdbLoan ? "hdb" : "bank";
+  if (lastLender && lastLender !== lenderKey){
+    L("rate").value = hdbLoan ? 2.6 : 3; L("tenure").value = hdbLoan ? 25 : 30;
+    s.rate = +L("rate").value; s.tenure = +L("tenure").value;
+  }
+  lastLender = lenderKey;
+  L("rate-h").textContent = hdbLoan ? "HDB rate: CPF OA rate + 0.1%" : "Your bank's quoted rate";
+
+  // ---- Eligibility gate ----
+  const E = loanEligibility(s, {isHdb, isEc, isPriv, hdbLoan, hasSC, hasFor, prOnly, forOnly, ownsPriv, ownsHdb, hhInc});
+  const buyBlocks = E.buy.filter(c => c.kind==="no");
+  const blocked = buyBlocks.length > 0 || E.loanBlk.length > 0;
+  const nCond = E.buy.filter(c => c.kind==="warn").length;
+  const pill = $("l-pill");
+  if (buyBlocks.length){
+    pill.className = "pill no"; pill.textContent = "Not eligible";
+    $("l-headline").textContent = `You're not eligible to buy ${TYPE_LABEL[s.type]}.`;
+  } else if (E.loanBlk.length){
+    pill.className = "pill no"; pill.textContent = "No HDB loan";
+    $("l-headline").textContent = `You can buy ${TYPE_LABEL[s.type]}, but not with an HDB loan. Switch “Loan from” to Bank to see the figures.`;
+  } else {
+    pill.className = "pill " + (nCond ? "cond" : "yes"); pill.textContent = nCond ? "Eligible · conditions" : "Eligible";
+    $("l-headline").textContent = nCond ? `You can buy ${TYPE_LABEL[s.type]}, with conditions.` : `You can buy ${TYPE_LABEL[s.type]}.`;
+  }
+  $("l-tally").textContent = blocked ? `${buyBlocks.length + E.loanBlk.length} blocking` : `${nCond} condition${nCond===1 ? "" : "s"}`;
+  $("l-kpis").hidden = blocked;
+  document.querySelectorAll("#p-loan .l-fig").forEach(el => { el.hidden = blocked; });
+  $("l-blocks-wrap").hidden = !blocked;
+  if (blocked){
+    $("l-blocks").innerHTML = [...buyBlocks, ...E.loanBlk, ...E.buy.filter(c => c.kind==="warn")].map(li).join("");
+    return;
+  }
+
+  const notes = E.buy.filter(c => c.kind!=="ok").slice();
+  const note = (kind,text,src) => notes.push({kind,text,src});
+  let grants = vis.grants ? s.grants : 0;
+  if (grants && E.grantMsg.length){ note("warn", `${E.grantMsg[0]} The ${m(grants)} you entered is left out.`, "cpfg"); grants = 0; }
+  if (nHomes < s.hl) note("warn", `You've entered more outstanding home loans than homes owned. Check both fields; the loan limit uses the number of home loans.`, "masltv");
+  if (nHomes===0 && s.pdebt > 0) note("warn", `You've entered home loan instalments but no home owned. Check both fields.`, "mastdsr");
+
+  const val = isResale && s.val ? s.val : s.price;
+  const base = Math.min(s.price, val);
+  const dutyBase = Math.max(s.price, val);
+
+  // Tenure
+  let maxT, tNote;
+  if (hdbLoan){ maxT = Math.max(0, Math.min(25, 65 - s.age, s.lease - 20)); tNote = `An HDB loan runs for the shortest of 25 years, 65 minus your age (${65 - s.age}), or the remaining lease minus 20 years (${s.lease - 20}).`; }
+  else { maxT = isHdb ? 30 : 35; tNote = `MAS caps bank loans at ${maxT} years for ${isHdb ? "HDB flats" : "non-HDB homes"}.`; }
+  const T = Math.max(0, Math.min(s.tenure, maxT));
+  if (T <= 0) note("no", `No loan tenure is possible. ${tNote}`, hdbLoan ? "loan" : "masltv");
+  else if (s.tenure > maxT) note("warn", `Tenure shortened from ${s.tenure} to ${T} years. ${tNote}`, hdbLoan ? "loan" : "masltv");
+  else note("info", `Tenure: ${T} years. ${tNote}`, hdbLoan ? "loan" : "masltv");
+
+  // Loan-to-value
+  let ltv, minCashPct = 0;
+  if (hdbLoan){
+    ltv = 75;
+    note("info", `An HDB loan covers up to 75% of the ${isResale ? "lower of price or valuation" : "purchase price"}.`, "loan");
+    if (s.age + s.lease < 95) note("warn", `The remaining lease won't last the youngest buyer to age 95, so HDB lowers the 75% limit and CPF use is capped. Expect a smaller loan than shown.`, "loan");
+  } else {
+    const lower = T > (isHdb ? 25 : 30) || s.age + T > 65;
+    ltv = [[75,55],[45,25],[35,15]][s.hl][lower ? 1 : 0];
+    minCashPct = s.hl===0 ? (lower ? 10 : 5) : 25;
+    note(lower ? "warn" : "info", `Bank loan with ${["no","1","2 or more"][s.hl]} other home loan${s.hl===1 ? "" : "s"}: up to ${ltv}% of the ${isResale ? "lower of price or valuation" : "price"}, with at least ${minCashPct}% paid in cash.${lower ? ` You get the lower limit because the tenure is over ${isHdb ? 25 : 30} years or the loan runs past age 65 (you'd be ${s.age + T} at the end).` : ""}`, "masltv");
+  }
+
+  // Serviceability
+  const income = s.fixed + 0.7*s.vari;
+  const stress = hdbLoan ? Math.max(3, s.rate) : Math.max(4, s.rate);
+  const msrApplies = isHdb || isEc;
+  const tdsrRoom = 0.55*income - s.pdebt - s.odebt;
+  const msrRoom = 0.30*income - s.pdebt;
+  const caps = [
+    {name:`Loan-to-value (${ltv}%)`, v: T>0 ? ltv/100*base : 0, src: hdbLoan ? "loan" : "masltv"},
+    {name:"Total debt servicing (55%)", v: hdbLoan ? null : pvOf(tdsrRoom, stress, T), src:"mastdsr"},
+    {name: hdbLoan ? "HDB instalment cap (30%)" : "Mortgage servicing (30%)", v: msrApplies ? pvOf(msrRoom, stress, T) : null, src: hdbLoan ? "loan" : "masmsr"}
+  ];
+  const active = caps.filter(c => c.v !== null);
+  const priceCap = Math.max(0, s.price - grants);
+  const capMin = Math.min(...active.map(c => c.v));
+  const maxLoan = Math.max(0, Math.floor(Math.min(priceCap, capMin)/100)*100);
+  const binding = capMin <= priceCap ? active.reduce((a,c) => c.v < a.v ? c : a) : null;
+  const loan = s.want !== null ? Math.max(0, Math.min(s.want, maxLoan)) : maxLoan;
+  if (s.want !== null && s.want > maxLoan) note("warn", `The ${m(s.want)} you entered is more than you can borrow, so the figures use the maximum of ${m(maxLoan)}.`, null);
+
+  note("info", `Income counted: ${m(s.fixed)} fixed${s.vari ? ` plus 70% of ${m(s.vari)} variable` : ""}, a total of ${m(income)}.${s.vari && !hdbLoan ? " MAS requires banks to cut variable and rental income by at least 30%." : ""}`, "mastdsr");
+  note("info", hdbLoan
+    ? `HDB keeps instalments within 30% of income, tested at ${stress.toFixed(2)}% (the higher of its 3% floor and the loan rate).`
+    : `The loan is tested at ${stress.toFixed(2)}% (the higher of MAS's 4% floor and your rate). All debt repayments must stay within 55% of income${msrApplies ? ", and home loan repayments within 30%" : ""}.`, hdbLoan ? "loan" : "mastdsr");
+  if (!hdbLoan && tdsrRoom <= 0) note("no", `Your existing repayments already take ${income ? Math.round((s.pdebt + s.odebt)/income*100) : 100}% of income, which leaves no room under the 55% limit.`, "mastdsr");
+  if (msrApplies && msrRoom <= 0) note("no", `Your existing home loan instalments already use up the 30% limit.`, hdbLoan ? "loan" : "masmsr");
+  if (binding) note("info", `<b>${binding.name}</b> sets your maximum loan.${binding.name.startsWith("Loan-to-value") ? "" : " Paying down other debts or adding a co-borrower's income would raise it."}`, binding.src);
+
+  const inst = pmt(loan, s.rate, T), instStress = pmt(loan, stress, T);
+
+  // ABSD (IRAS): HDB flats & new ECs are remitted when any buyer is a citizen; PR-only HDB buyers pay 5%.
+  const nIdx = Math.min(nHomes, 2);
+  let absdPct, absdNote, absdRefund = false;
+  if (isHdb || isEc){
+    absdPct = hasSC ? 0 : 5;
+    absdNote = hasSC ? ["ok", `No ABSD: it's fully remitted on HDB flats and new ECs when any buyer is a Singapore Citizen.`] : ["info", `PR buyers of HDB flats pay ABSD at a reduced 5%.`];
+  } else {
+    const scRate = ABSD.SC[nIdx], prRate = ABSD.SPR[nIdx], forRate = s.fta ? scRate : 60;
+    absdPct = {SC:scRate, SCPR:Math.max(scRate, prRate), SCFOR:Math.max(scRate, forRate), PR:prRate, FOR:forRate}[s.prof];
+    const who = {SC:"Singapore Citizens", SCPR:"a citizen and a PR", SCFOR:"a citizen and a foreigner", PR:"PRs", FOR:"foreigners"}[s.prof];
+    if (coupleShown && s.couple && nHomes===0 && absdPct > 0){
+      absdPct = 0; absdNote = ["ok", `No ABSD: married couples with a Singapore Citizen spouse buying their first home in both names get full remission.`];
+    } else if (coupleShown && s.couple && nHomes===1 && absdPct > 0){
+      absdRefund = true;
+      absdNote = ["warn", `You pay ABSD of ${absdPct}% upfront. As a married couple with a citizen spouse, you can get it refunded if you sell your first home within 6 months of buying (or of TOP, for an uncompleted home).`];
+    } else if (absdPct === 0){
+      absdNote = ["ok", `No ABSD for citizens${s.fta && hasFor ? " (and FTA nationals, who are treated like citizens)" : ""} buying a first home.`];
+    } else {
+      absdNote = ["info", `ABSD of ${absdPct}% for ${who}${nHomes ? ` who already own ${nHomes===1 ? "a home" : "2 or more homes"}` : " buying a first home"}.${s.prof==="SCPR" || s.prof==="SCFOR" ? " Joint buyers pay the highest rate among them." : ""}${s.fta && hasFor ? " FTA nationals are charged the citizen rate." : ""} HDB flats count as homes owned.`];
+    }
+  }
+  const absdAmt = Math.floor(dutyBase*absdPct/100);
+  note(absdNote[0], absdNote[1], isHdb||isEc ? "absdhdb" : absdRefund ? "absdrem" : (s.couple && coupleShown) ? "absdrem" : s.fta && hasFor ? "absdfta" : "absd");
+
+  // Upfront
+  const down = Math.max(0, s.price - loan - grants);
+  const cov = isResale ? Math.max(0, s.price - base) : 0;
+  const bsdAmt = bsdOf(dutyBase);
+  const mDuty = loan > 0 ? Math.min(500, Math.floor(loan*0.004)) : 0;
+  const hdbFees = s.type==="hdbResale" ? 200 : 0;
+  const total = down + bsdAmt + absdAmt + mDuty + hdbFees + s.legal + s.other;
+  const noCpf = forOnly;
+  const minCashDown = noCpf ? down : hdbLoan ? Math.min(down, cov) : Math.min(down, minCashPct/100*base + cov);
+  const cpfEligible = Math.max(0, down - minCashDown);
+  const cpfUsed = noCpf ? 0 : Math.min(s.cpf, cpfEligible);
+  const cash = total - cpfUsed;
+
+  if (cov > 0) note("warn", `You're paying ${m(cov)} above valuation. This amount, called cash over valuation, must be paid in cash, because loans and CPF are based on the lower figure.`, isHdb ? "hdbfin" : "cpfuse");
+  if (hdbLoan) note("info", `With an HDB loan, you can pay the down payment from your CPF OA. Each buyer can keep up to $20,000 in their OA; the rest must go into the flat before HDB lends.`, "loan");
+  else if (!noCpf && minCashPct) note("info", `At least ${minCashPct}% (${m(minCashPct/100*base)}) must be cash. You can pay the rest of the down payment from your CPF OA.`, "masltv");
+  if (noCpf) note("info", `Foreigners have no CPF, so the whole down payment is cash.`, "cpfuse");
+  else if (s.prof==="SCFOR") note("info", `Only the citizen's CPF can be used; enter just their Ordinary Account balance.`, "cpfuse");
+  if (!noCpf && cpfUsed < cpfEligible) note("warn", `Your CPF OA covers ${m(cpfUsed)} of the down payment. The other ${m(cpfEligible - cpfUsed)} must be cash.`, "cpfuse");
+  note("info", `This estimate counts stamp duties and fees as cash. ${hdbLoan ? "With an HDB loan, CPF OA can also pay the stamp fee, legal fees and registration fee." : "Check with CPF Board on using your OA for any of these."} Legal and other fees are your own estimates, since no agency sets them.${hdbFees ? " HDB charges $120 for a Request for Value and $80 for the resale application ($40 for 1- and 2-room flats)." : ""}`, hdbLoan ? "loan" : hdbFees ? "hdbfin" : null);
+  if (s.type==="privNew" || isEc) note("info", `For a new launch, the down payment and stamp duties are due early. The bank releases the loan in stages as construction progresses, so full instalments start later.`, "ura");
+  if (s.type==="hdbNew") note("info", `For a new HDB flat, the HDB loan is only released at key collection.`, "loan");
+  if (isPriv) note("info", `If you sell within 4 years, Seller's Stamp Duty of 16%, 12%, 8% or 4% applies, depending on the year.`, "ssd");
+
+  // Property tax (IRAS progressive rates on Annual Value)
+  const oo = s.occ==="oo";
+  const ptBands = oo
+    ? [[12000,0],[28000,4],[10000,6],[25000,10],[10000,14],[15000,20],[40000,26],[Infinity,32]]
+    : [[30000,12],[15000,20],[15000,28],[Infinity,36]];
+  let ptRest = s.av, ptax = 0;
+  for (const [band,r] of ptBands){ const x = Math.min(ptRest, band); ptax += x*r/100; ptRest -= x; if (ptRest <= 0) break; }
+  const ptFree = isHdb && oo && s.small;
+  if (ptFree) ptax = 0;
+  ptax = Math.round(ptax);
+  if (!s.av) note("warn", `Enter the Annual Value to estimate property tax. For a home you haven't bought yet, ask the seller for their property tax bill, or estimate the yearly rent it could fetch.`, "ptax");
+  else if (ptFree) note("ok", `1- and 2-room HDB flats their owners live in pay no property tax.`, "ptaxreb");
+  else note("info", `Property tax: ${m(ptax)} a year on an Annual Value of ${m(s.av)}, at ${oo ? "owner-occupier rates (from 1 Jan 2025): 0% on the first $12,000, then 4% rising to 32% above $140,000" : "non-owner-occupier rates (from 1 Jan 2024): 12% on the first $30,000, rising to 36% above $60,000"}.${oo ? " Only the home you live in gets owner-occupier rates. The 2026 rebate (15% for HDB flats, 10% capped at $500 for private homes) was one-off, so it isn't deducted." : ""}`, "ptax");
+
+  // Render
+  $("k-ptax").textContent = m(ptax);
+  $("k-ptax-s").textContent = `about ${m(ptax/12)} a month · ${oo ? "owner-occupied" : "not owner-occupied"}`;
+  $("k-loan").textContent = m(loan);
+  $("k-loan-s").textContent = T > 0 ? `${base ? Math.round(loan/base*100) : 0}% LTV · ${T} years${loan < maxLoan ? ` · max ${m(maxLoan)}` : ""}` : "No tenure available";
+  $("k-inst").textContent = m(inst);
+  $("k-inst-s").textContent = `at ${s.rate}% · ${m(instStress)} at stress rate`;
+  $("k-up").textContent = m(total);
+  $("k-up-s").textContent = `incl. ${m(down)} down payment`;
+  $("k-cash").textContent = m(cash);
+  $("k-cash-s").textContent = noCpf ? "No CPF for foreigners" : `plus ${m(cpfUsed)} from CPF OA`;
+
+  const maxV = Math.max(1, ...active.map(c => c.v));
+  $("caps").innerHTML = caps.map(c => c.v === null
+    ? `<div class="cap"><span class="nm">${c.name}</span><span class="bar"></span><span class="na">Doesn't apply</span></div>`
+    : `<div class="cap${c===binding ? " bind" : ""}"><span class="nm">${c.name}</span><span class="bar"><i style="width:${Math.max(0, c.v/maxV*100).toFixed(1)}%"></i></span><span class="amt">${m(c.v)}</span></div>`).join("")
+    + (binding ? "" : `<p class="muted" style="margin:0;font-size:14px">Your loan is limited by the price${grants ? " minus grants" : ""} (${m(priceCap)}), not by these rules.</p>`);
+
+  const row = (label, amt, noteText, cls="") => `<tr class="${cls}"><td>${label}${noteText ? `<span class="note">${noteText}</span>` : ""}</td><td class="amt">${amt}</td></tr>`;
+  $("costs").innerHTML =
+    row("Down payment", m(down), `${m(s.price)} price − ${m(loan)} loan${grants ? ` − ${m(grants)} grants` : ""} · ${m(minCashDown)} must be cash`) +
+    row("Buyer's Stamp Duty", m(bsdAmt), `On ${m(dutyBase)}`) +
+    row(`Additional Buyer's Stamp Duty (${absdPct}%)`, m(absdAmt), absdRefund ? "Refundable if first home sold within 6 months" : "") +
+    (loan > 0 ? row("Mortgage duty", m(mDuty), "0.4% of loan, max $500") : "") +
+    (hdbFees ? row("HDB fees", m(hdbFees), "Request for Value $120 + resale application $80") : "") +
+    row("Legal fees", m(s.legal), "Your estimate") +
+    (s.other ? row("Other fees", m(s.other), "Your estimate") : "") +
+    row("Total upfront", m(total), "", "total") +
+    (noCpf ? "" : row("Paid from CPF OA", "− " + m(cpfUsed), "", "sub")) +
+    row("<b>Cash needed</b>", `<b>${m(cash)}</b>`, "");
+
+  $("yearly").innerHTML =
+    row("Loan repayments", m(inst*12), `${m(inst)} × 12`) +
+    row("Property tax", m(ptax), s.av ? `${m(ptax/12)} × 12 · Annual Value ${m(s.av)}` : "Enter Annual Value") +
+    row("Total per year", m(inst*12 + ptax), `${m(inst + ptax/12)} × 12`, "total");
+  $("l-notes").innerHTML = notes.map(li).join("");
+}
+
+const LDEF = {type:"privNew",price:"1500000",val:"",lender:"hdb",lease:"99",grants:"0",prof:"SC",hh:"family",owned:"0",hl:"0",age:"34",fixed:"16000",var:"2000",pdebt:"0",odebt:"900",rate:"3",tenure:"30",want:"",cpf:"120000",legal:"3000",other:"500",av:"48000",occ:"oo"};
+$("l-reset").addEventListener("click", () => { Object.entries(LDEF).forEach(([k,v]) => { L(k).value = v; }); L("couple").checked = false; L("small").checked = false; L("fta").checked = false; formatAllMoney(); lastLender = null; calcLoan(); });
+$("lform").addEventListener("input", calcLoan);
+$("lform").addEventListener("change", calcLoan);
+
+/* ---------- Q&A ---------- */
+const QA = [
+ {t:["HDB new"],q:"Who can apply for a new BTO flat?",a:"A Singapore Citizen aged 21+ with a fiancé(e), spouse, children or parents (at least one other SC or SPR), for flats up to 5-room. Singles, and citizens with a non-resident spouse, must be 35+ and can apply only for 2-room Flexi flats. PR-only households can't buy new flats.",s:"fam"},
+ {t:["HDB new","Income"],q:"What is the income ceiling for a BTO flat now?",a:"From 24 Aug 2026 HFE applications: $16,000 for families (4- and 5-room, and 3-room in most projects), $24,000 with extended or multi-generation families, and $8,000 for 2-room Flexi flats, singles and some 3-room projects. Before that date the family ceiling was $14,000 and the singles ceiling $7,000.",s:"inc26"},
+ {t:["HDB resale","Income"],q:"Is there an income ceiling for resale HDB flats?",a:"Not for Standard or unclassified resale flats. Income ceilings apply only if you want CPF housing grants (except the Proximity Housing Grant) or an HDB loan. Resale Plus and Prime flats follow new-flat ceilings: $16,000 for families. For singles, Plus flats cap at $16,000 and 2-room Prime flats at $8,000.",s:"fam"},
+ {t:["Private","HDB resale"],q:"I own a condo. Can I buy an HDB resale flat?",a:"Yes, since 28 Jul 2026, if it's a Standard or unclassified resale flat bought without CPF grants (the Proximity Housing Grant is allowed) or an HDB loan. You must sell the condo, in Singapore or overseas, within 6 months of completing the flat purchase. For a new flat, a Plus or Prime resale flat, grants, an HDB loan or an EC, you must sell and then wait 30 months.",s:"wait26"},
+ {t:["Private","HDB new"],q:"How is the 30-month wait-out counted?",a:"From the legal completion date of your private property sale to your HFE letter application. HDB's example: a sale that completed on 1 Jul 2024 allows an application on or after 1 Jan 2027.",s:"fam"},
+ {t:["Private"],q:"Does an overseas property or an inherited share count as owning private property?",a:"Yes. HDB counts local and overseas, completed and uncompleted properties, including shares you get as a gift, inheritance, through nominees or as a trust beneficiary. ECs, privatised HUDC flats and mixed-use homes (e.g. a shophouse with living quarters) count as private residential property.",s:"fam"},
+ {t:["Private"],q:"Can I keep a shop or office and still buy an HDB flat?",a:"For a new flat, a Plus/Prime resale flat, grants or an HDB loan, your household may own at most one non-residential property. Any others must have been sold at least 30 months before you apply. For a Standard resale flat without grants or an HDB loan, there is no limit.",s:"fam"},
+ {t:["Selling"],q:"When can I sell my HDB flat?",a:"After the minimum occupation period (MOP), counted from legal completion: 5 years for Standard/unclassified and DBSS flats, 10 years for Plus and Prime flats, 20 years under the Fresh Start Housing Scheme. Periods when you didn't live in the flat don't count.",s:"sell"},
+ {t:["Selling","Foreigners & PRs"],q:"What other checks apply when I sell my HDB flat?",a:"The sale must fit the Ethnic Integration Policy quota for your block and neighbourhood, and the PR quota (8% of the block, 5% of the neighbourhood) if the buyer is a non-Malaysian PR household. The quotas update on the 1st of each month. Register an Intent to Sell on My Flat Dashboard to check.",s:"sell"},
+ {t:["Private","Selling"],q:"Can I buy a private condo while keeping my HDB flat?",a:"Only after the MOP. Citizen households can keep the flat but must keep living in it unless HDB approves renting it out. If all flat owners are PRs, they must sell the flat within 6 months of acquiring the private property.",s:"after"},
+ {t:["Private"],q:"Can I buy private property during my flat's or EC's MOP?",a:"No. URA's buying guidance says HDB, DBSS and EC owners must meet the MOP set by HDB before buying any private residential property.",s:"ura"},
+ {t:["Foreigners & PRs"],q:"Can a PR buy an HDB flat?",a:"A household made up only of PRs can buy a resale flat once every PR buyer has held PR status for at least 3 years, subject to the PR quota. PRs can't buy new flats unless buying with a Singapore Citizen applicant. CPF housing grants for resale flats need a citizen applicant.",s:"fam"},
+ {t:["Foreigners & PRs","HDB new"],q:"What extra do SC + SPR couples pay?",a:"First-timer households with just one SC and SPR family members pay a $10,000 premium when buying a new flat. They can apply for a $10,000 Citizen Top-Up when the PR becomes a citizen or they have a Singapore Citizen child.",s:"fam"},
+ {t:["Foreigners & PRs","Private"],q:"Can foreigners buy property in Singapore?",a:"Foreigners can't buy HDB flats or ECs from developers. URA notes that non-citizens need approval from the Singapore Land Authority's Controller of Residential Property to buy landed homes, including strata landed houses. Additional Buyer's Stamp Duty depends on residency status (rates on IRAS).",s:"ura"},
+ {t:["Singles"],q:"I'm single. What can I buy?",a:"At 35+ as a Singapore Citizen: a 2-room Flexi flat from HDB (income ≤ $8,000, plus a $15,000 extra built into the price), or a resale flat of any type except 3Gen. Widowed or orphaned singles can buy resale from age 21. Grants cover resale flats up to 5-room.",s:"sing"},
+ {t:["Singles","EC"],q:"Can singles buy an EC?",a:"Not alone. Two to four singles who are all Singapore Citizens aged 35 or older can apply jointly.",s:"ec"},
+ {t:["EC"],q:"Who can buy a new Executive Condominium?",a:"A Singapore Citizen aged 21+ with a fiancé(e), spouse, children, parents or orphaned siblings (at least one other SC/SPR), or joint SC singles aged 35+. The income ceiling is $18,000 for EC land tenders closed on or after 24 Aug 2026, and $16,000 for older sites. No private property owned or sold in the last 30 months. Core members with 2 subsidies can't buy.",s:"ec"},
+ {t:["EC","Selling"],q:"What's the MOP for an EC?",a:"10 years from TOP for EC projects whose land tender closed on or after 8 May 2026, and 5 years for others. You can buy private property only after the MOP. Whole-unit renting is allowed after the MOP; room rental during the MOP must be registered with HDB within 7 days.",s:"ecafter"},
+ {t:["Grants"],q:"How much grant can first-timer families get for a resale flat?",a:"CPF Housing Grant: $80,000 (SC/SC) or $70,000 (SC/SPR) for 2- to 4-room flats, and $50,000 or $40,000 for 5-room+. Enhanced CPF Housing Grant: up to $120,000 if income is $9,000 or less. Proximity Housing Grant: $30,000 to live with parents or child, $20,000 to live within 4 km. All three can be combined if you qualify for each.",s:"cpfg"},
+ {t:["Grants"],q:"How does the Enhanced CPF Housing Grant work?",a:"It's for first-timers buying new or resale flats. Families can get up to $120,000 and singles up to $60,000. The amount is graded by average gross monthly income over 12 months, and you must have worked continuously for 12 months and still be working. HDB examples: income of $4,200 gets $70,000; $3,000 gets $95,000. The full amount needs the lease to cover the youngest buyer to 95.",s:"ehg"},
+ {t:["Grants","Singles"],q:"What grants can singles get?",a:"Singles Grant for resale flats: $40,000 (2- to 4-room) or $25,000 (5-room+), per first-timer citizen, for up to 2 singles. Enhanced grant (Singles): up to $60,000 if income is $4,500 or less ($9,000 when buying with other singles, or a resale flat with parents).",s:"singg"},
+ {t:["HDB new","Selling"],q:"What is the resale levy?",a:"A fixed amount paid when second-timers buy another subsidised flat or a new EC, e.g. $30,000 (3-room), $40,000 (4-room) or $45,000 (5-room) for families; singles pay half. It isn't payable if your next home is a resale flat without grants or a private home.",s:"after"},
+ {t:["HDB new"],q:"Can I buy a new flat if I've taken two housing subsidies?",a:"No — you can't be an applicant or core occupier for a new flat or resale Prime flat. Seniors 55+ may still buy a short-lease 2-room Flexi flat or Community Care Apartment unless one of the earlier subsidies was also a short-lease flat, studio or Community Care Apartment.",s:"fam"},
+ {t:["CPF & loans"],q:"How much can I borrow from HDB?",a:"Up to 75% of the price (new flat) or of the lower of price or valuation (resale), for applications from 20 Aug 2024. The tenure is the shortest of 25 years, 65 minus your average age, or remaining lease minus 20 years. Income ceilings: $16,000 families, $24,000 extended, $8,000 singles. At most 2 HDB loans.",s:"loan"},
+ {t:["CPF & loans"],q:"How much CPF can I use to buy a home?",a:"For a new flat with an HDB loan, the full price. For a resale flat, or any home with a bank loan: up to the lower of price or valuation. Once you've set aside your Basic Retirement Sum, you can use more for an HDB loan, or up to 120% with a bank loan. If the lease can't cover the youngest CPF user to 95, usage is pro-rated.",s:"cpfuse"},
+ {t:["CPF & loans","Selling"],q:"What happens to my CPF when I sell?",a:"The sale proceeds repay the housing loan, then refund the CPF you used plus accrued interest (and any housing grants). Under 55, the refund goes to your Ordinary Account. At 55+, it first tops up your Retirement Account to the Full Retirement Sum. If you sell at market value and proceeds fall short, you don't top up in cash.",s:"cpfref"},
+ {t:["Seniors"],q:"What can seniors aged 55+ buy?",a:"A short-lease 2-room Flexi flat or a Community Care Apartment, with a lease of 15–45 years (Community Care Apartments offered before the November 2026 BTO went up to 35 years). The lease must last buyers to age 95, and income must be $16,000 or less. You may own private property if you sell it within 6 months of completing the purchase.",s:"sen"},
+ {t:["Private"],q:"What stamp duties apply to private property?",a:"Buyer's Stamp Duty: 1% to 6% in tiers. Additional Buyer's Stamp Duty: citizens 0% / 20% / 30% for their 1st / 2nd / 3rd+ home, PRs 5% / 30% / 35%, foreigners 60%. It is fully waived on HDB flats and new ECs when any buyer is a citizen (PR-only HDB buyers pay 5%), and married couples with a citizen spouse buying their first home together pay none. US nationals, and nationals or PRs of Iceland, Liechtenstein, Norway and Switzerland, pay citizen rates. Seller's Stamp Duty applies if you sell within 4 years of buying (for homes bought from 4 Jul 2025): 16%, 12%, 8% or 4%. For homes bought from 11 Mar 2017 to 3 Jul 2025, it's 3 years at 12%, 8%, 4%. The Loan & upfront costs tab works these out for you.",s:"absd"},
+ {t:["CPF & loans","Private"],q:"How much will a bank lend me?",a:"The lowest of three limits. Loan-to-value: 75% for a first home loan (at least 5% cash down), 45% with one outstanding home loan. Total Debt Servicing Ratio: all debt repayments within 55% of income. For HDB flats and new ECs, the Mortgage Servicing Ratio also applies: home loan repayments within 30% of income. Banks test repayments at the higher of 4% or their thereafter rate, and count only 70% of variable income.",s:"mastdsr"},
+ {t:["Private"],q:"How does buying from a developer work?",a:"The developer must show you mandatory project information before taking a booking fee for an Option to Purchase. The Option expires 3 weeks after you receive the Sale and Purchase Agreement. If you don't exercise it, the developer may keep 25% of the booking fee. Before buying resale, ask for approved plans to check for unauthorised works.",s:"ura"},
+ {t:["HDB new","HDB resale"],q:"What is an HFE letter and do I need one?",a:"The HDB Flat Eligibility letter tells you upfront whether you can buy a new or resale flat, and how much grant and HDB loan you qualify for. You need one before buying. It takes about a month once HDB has all your documents.",s:"fam"},
+ {t:["HDB new"],q:"How do ballot chances work for families?",a:"First-timer (Parents & Married Couples) families get 3 ballot chances; other first-timer families get 2, and second-timers 1. Unsuccessful Standard-flat applicants gain extra chances (capped at 5 or 4). From February 2027, families get one more chance for each Singapore Citizen child aged 18 or under.",s:"inc26"}
+];
+const TAGS = ["All", ...[...new Set(QA.flatMap(x=>x.t))]];
+let activeTag = "All";
+function renderQA(){
+  const term = $("q").value.trim().toLowerCase();
+  const items = QA.filter(x => (activeTag==="All" || x.t.includes(activeTag)) && (!term || (x.q+" "+x.a).toLowerCase().includes(term)));
+  $("qa-list").innerHTML = items.length ? items.map(x=>`<details class="qa"><summary>${x.q}</summary><div class="qa-a"><p>${x.a}</p><div class="qa-meta">${x.t.map(t=>`<span class="tag">${t}</span>`).join("")}<span>Source: <a href="${S[x.s][1]}" target="_blank" rel="noopener">${S[x.s][0]}</a></span></div></div></details>`).join("")
+    : `<p class="empty">No questions match “${term.replace(/</g,"&lt;")}”. Try another word, or use the checker.</p>`;
+}
+$("tagbar").innerHTML = TAGS.map(t=>`<button type="button" aria-pressed="${t==="All"}" data-tag="${t}">${t}</button>`).join("");
+$("tagbar").addEventListener("click", e => { const b=e.target.closest("button"); if(!b) return; activeTag=b.dataset.tag; document.querySelectorAll("#tagbar button").forEach(x=>x.setAttribute("aria-pressed", x===b)); renderQA(); });
+$("q").addEventListener("input", renderQA);
+
+/* ---------- Tabs ---------- */
+const tabs = [...document.querySelectorAll('nav.tabs [role="tab"]')];
+function selectTab(id){
+  tabs.forEach(t => { const on = t.id===id; t.setAttribute("aria-selected", on); $(t.getAttribute("aria-controls")).hidden = !on; });
+  try { localStorage.setItem("sgHomeTab", id); } catch(e){}
+}
+tabs.forEach(t => t.addEventListener("click", () => selectTab(t.id)));
+try { const saved = localStorage.getItem("sgHomeTab"); if (saved && $(saved)) selectTab(saved); } catch(e){}
+
+$("srclist").innerHTML = Object.values(S).map(([n,u])=>`<li><a href="${u}" target="_blank" rel="noopener">${n}</a></li>`).join("");
+/* ---------- Money inputs: show as $11,000 while typing ---------- */
+function formatMoney(el){
+  const focused = document.activeElement === el;
+  const pos = focused ? el.selectionStart : el.value.length;
+  const digitsBefore = el.value.slice(0, pos).replace(/\D/g, "").length;
+  const digits = el.value.replace(/\D/g, "").replace(/^0+(?=\d)/, "");
+  el.value = digits === "" ? "" : "$" + Number(digits).toLocaleString("en-SG");
+  if (focused){
+    let i = digits === "" ? 0 : 1, seen = 0;
+    while (i < el.value.length && seen < digitsBefore){ if (/\d/.test(el.value[i])) seen++; i++; }
+    el.setSelectionRange(i, i);
+  }
+}
+function formatAllMoney(){ document.querySelectorAll("input.money").forEach(formatMoney); }
+document.querySelectorAll("input.money").forEach(el => el.addEventListener("input", () => formatMoney(el)));
+formatAllMoney();
+
+renderQA();
+render();
+calcLoan();
+</script>
+</body>
+</html>
