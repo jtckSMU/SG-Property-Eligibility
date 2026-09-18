@@ -1,4 +1,4 @@
-# SG Home Eligibility Desk
+# SG Property Eligibility
 
 A single-page dashboard answering who can buy or sell an HDB flat, EC or private home in Singapore.
 
